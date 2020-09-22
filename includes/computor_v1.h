@@ -6,15 +6,15 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/17 15:55:43 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 16:46:41 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COMPUTOR_V1_H
 # define COMPUTOR_V1_H
 
-# define DOUBLE_PREC 1;
-# define SQRT_PREC 5;
+# define DOUBLE_PREC 1
+# define SQRT_PREC 5
 
 # include "libft.h"
 # include <sys/types.h>

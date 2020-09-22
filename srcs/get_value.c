@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:40:39 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 16:50:25 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,20 @@ double		get_func_value(t_var *finded, char *func_var, t_param *param)
 
 	value = 0;
 	if (param->sym == '+')
-		value = get_func_value(finded, func_var, param->left) + get_func_value(finded, func_var, param->right);
+		value = get_func_value(finded, func_var, param->left)
+		+ get_func_value(finded, func_var, param->right);
 	else if (param->sym == '-')
-		value = get_func_value(finded, func_var, param->left) - get_func_value(finded, func_var, param->right);
+		value = get_func_value(finded, func_var, param->left)
+		- get_func_value(finded, func_var, param->right);
 	else if (param->sym == '%')
-		value = (int)get_func_value(finded, func_var, param->left) % (int)get_func_value(finded, func_var, param->right);
+		value = (int)get_func_value(finded, func_var, param->left)
+		% (int)get_func_value(finded, func_var, param->right);
 	else if (param->sym == '*')
-		value = get_func_value(finded, func_var, param->left) * get_func_value(finded, func_var, param->right);
+		value = get_func_value(finded, func_var, param->left)
+		* get_func_value(finded, func_var, param->right);
 	else if (param->sym == '/')
-		value = get_func_value(finded, func_var, param->left) / get_func_value(finded, func_var, param->right);
+		value = get_func_value(finded, func_var, param->left)
+		/ get_func_value(finded, func_var, param->right);
 	else if (ft_strcmp(param->value, finded->func_var) == 0)
 	{
 		value = find_value(func_var);
@@ -83,7 +88,7 @@ double		find_value(char *value)
 	return (0);
 }
 
-double 		get_value(t_param *param)
+double		get_value(t_param *param)
 {
 	double		value;
 

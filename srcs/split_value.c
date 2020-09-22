@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:44:27 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 16:59:36 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,6 @@ static void		split_index(t_param *param, char *value, size_t index)
 		}
 		free_split(split);
 	}
-}
-
-static size_t	get_power_index_last(char *value)
-{
-	int		index;
-	size_t		i;
-
-	index = -1;
-	i = ft_strlen(value) - 1;
-	while (value[i] && index == -1)
-	{
-		if (value[i] == '^')
-			index = i;
-		i--;
-	}
-	return (index);
 }
 
 static void		split_brace(t_param *param, char *value)

@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:43:00 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 16:59:09 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	sig_handler(int sig)
 	}
 }
 
-void	init_signal(void)
+void		init_signal(void)
 {
 	signal(SIGINT, sig_handler);
 	signal(SIGTERM, sig_handler);

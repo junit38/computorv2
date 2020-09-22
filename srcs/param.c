@@ -6,13 +6,13 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:41:06 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 16:56:17 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor_v2.h"
 
-t_param *init_param(void)
+t_param	*init_param(void)
 {
 	t_param	*param;
 
@@ -44,10 +44,23 @@ void	free_param(t_param *param)
 	}
 }
 
-int 	check_param(t_param *param, t_var *var)
+void	clean_param(t_param *param)
 {
-	int 		res_left;
-	int 		res_right;
+	if (param)
+	{
+		if (param->left)
+			free_param(param->left);
+		if (param->right)
+			free_param(param->right);
+		if (param->value)
+			free(param->value);
+	}
+}
+
+int		check_param(t_param *param, t_var *var)
+{
+	int		res_left;
+	int		res_right;
 
 	res_left = 1;
 	res_right = 1;

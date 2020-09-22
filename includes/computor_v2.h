@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:55:27 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 16:59:59 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ void		print_mat(t_var *var);
 */
 t_param		*init_param(void);
 void		free_param(t_param *param);
+void		clean_param(t_param *param);
 int			check_param(t_param *param, t_var *var);
 void		print_param(t_param *param);
 
@@ -112,6 +113,7 @@ void		set_power(t_param *param, char *value);
 int			is_bracket_power(char *value);
 int			get_power(char *value);
 void		clean_power(char *value);
+size_t		get_power_index_last(char *value);
 
 /*
 ** REDUCE_EQU

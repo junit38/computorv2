@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:41:34 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 16:54:57 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	get_b_img(t_param *param)
 {
-	int 		b;
-	int 		sign;
+	int		b;
+	int		sign;
 
 	b = 0;
 	sign = 1;
@@ -32,7 +32,8 @@ static int	get_b_img(t_param *param)
 		else if (ft_strcmp(param->left->value, "i") == 0)
 			b += atoi(param->right->value) * sign;
 	}
-	else {
+	else
+	{
 		if (param && param->left)
 			b += get_b_img(param->left);
 		if (param && param->right)
@@ -43,8 +44,8 @@ static int	get_b_img(t_param *param)
 
 static int	get_a_img(t_param *param)
 {
-	int 		a;
-	int			sign;
+	int		a;
+	int		sign;
 
 	a = 0;
 	sign = 1;
@@ -72,7 +73,7 @@ void		reduce_equ(t_var *var)
 	param = init_param();
 	param->right = init_param();
 	param->right->right = init_param();
-	param->right->left = init_param(); 
+	param->right->left = init_param();
 	param->right->right->value = ft_strdup("i");
 	param->right->right->sym = '*';
 	param->right->left->value = ft_itoa(get_b_img(var->param));

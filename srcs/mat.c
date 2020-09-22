@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:40:53 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 16:51:40 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ void	free_mat(int **mat)
 		free(mat);
 }
 
-int 	**split_mat(char *value)
+int		**split_mat(char *value)
 {
-	int 		**split_mat;
-	char 		**split;
-	char 		**split_2;
+	int			**split_mat;
+	char		**split;
+	char		**split_2;
 	int			i;
 	int			j;
 
@@ -39,14 +39,16 @@ int 	**split_mat(char *value)
 	if (split)
 	{
 		i = 0;
-		split_mat = (int**)malloc(sizeof(*split_mat) * get_table_len(split) + 1);
+		split_mat = (int**)malloc(sizeof(*split_mat)
+			* get_table_len(split) + 1);
 		while (split[i])
 		{
 			j = 0;
 			split_2 = ft_strsplit(clean_bracket(split[i]), ',');
 			if (split_2)
 			{
-				split_mat[i] = (int*)malloc(sizeof(split_mat) * get_table_len(split_2));
+				split_mat[i] = (int*)malloc(sizeof(split_mat)
+					* get_table_len(split_2));
 				while (split_2[j])
 				{
 					split_mat[i][j] = atoi(split_2[j]);
@@ -62,10 +64,10 @@ int 	**split_mat(char *value)
 	return (split_mat);
 }
 
-int 	get_mat_len(char *value)
+int		get_mat_len(char *value)
 {
-	char 		**split;
-	char 		**split_2;
+	char		**split;
+	char		**split_2;
 	int			len;
 
 	len = 0;

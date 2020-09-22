@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:42:32 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 16:58:12 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ static void	replace_equ_var(char *value)
 	while (value[i])
 	{
 		if (!ft_isdigit(value[i]) && value[i] != '+' && value[i] != '-'
-			&& value[i] != '*' && value[i] != '/' && value[i] != '%' && value[i] != ' '
-			&& value[i] != '^' && value[i] != '=')
+			&& value[i] != '*' && value[i] != '/' && value[i] != '%'
+			&& value[i] != ' ' && value[i] != '^' && value[i] != '=')
 		{
 			value[i] = 'X';
 		}
@@ -84,7 +84,7 @@ static char	*find_name(char *name)
 	return (ft_strdup(name));
 }
 
-void	resolve_equ(char *name, char *exp)
+void		resolve_equ(char *name, char *exp)
 {
 	char	**split;
 	char	*equ_str;
@@ -98,7 +98,8 @@ void	resolve_equ(char *name, char *exp)
 		finded_exp = find_name(split[0]);
 		if (finded_name && finded_exp)
 		{
-			equ_str = (char*)malloc(sizeof(equ_str) * ft_strlen(finded_name) + ft_strlen(finded_exp) + 4);
+			equ_str = (char*)malloc(sizeof(equ_str)
+				* ft_strlen(finded_name) + ft_strlen(finded_exp) + 4);
 			if (equ_str)
 			{
 				ft_strcpy(equ_str, finded_name);
@@ -110,7 +111,7 @@ void	resolve_equ(char *name, char *exp)
 			}
 			free(finded_name);
 			free(finded_exp);
-		}	
+		}
 		free_split(split);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:41:15 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 16:59:49 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	set_power(t_param *param, char *value)
 {
-	char	 **split;
+	char		**split;
 
 	split = ft_strsplit(value, '^');
 	if (split)
@@ -27,7 +27,7 @@ void	set_power(t_param *param, char *value)
 
 int		is_bracket_power(char *value)
 {
-	int 		i;
+	int			i;
 
 	i = ft_strlen(value) - 1;
 	while (value[i] && ft_isdigit(value[i]))
@@ -37,9 +37,9 @@ int		is_bracket_power(char *value)
 	return (0);
 }
 
-int 	get_power(char *value)
+int		get_power(char *value)
 {
-	char 	**split;
+	char	**split;
 	int		power;
 
 	split = ft_strsplit(value, '^');
@@ -69,3 +69,20 @@ void	clean_power(char *value)
 		}
 	}
 }
+
+size_t	get_power_index_last(char *value)
+{
+	int		index;
+	size_t	i;
+
+	index = -1;
+	i = ft_strlen(value) - 1;
+	while (value[i] && index == -1)
+	{
+		if (value[i] == '^')
+			index = i;
+		i--;
+	}
+	return (index);
+}
+

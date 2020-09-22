@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:39:32 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 16:49:02 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ int		is_func(char *name)
 	return (1);
 }
 
-char 	*get_func_var(char *var)
+char	*get_func_var(char *var)
 {
-	char 		**split;
-	char 		**split2;
+	char		**split;
+	char		**split2;
 	char		*func_var;
 
 	split = ft_strsplit(var, '(');
@@ -75,9 +75,9 @@ char 	*get_func_var(char *var)
 	return (func_var);
 }
 
-char 	*get_func_name(char *var)
+char	*get_func_name(char *var)
 {
-	char 		**split;
+	char		**split;
 	char		*name;
 
 	split = ft_strsplit(var, '(');

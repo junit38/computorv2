@@ -6,15 +6,15 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:42:50 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 16:58:52 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor_v2.h"
 
-static int 	is_sign(char *value, int index)
+static int	is_sign(char *value, int index)
 {
-	int 	i;
+	int		i;
 
 	i = index - 1;
 	if (!value[i] || index == 0)
@@ -43,7 +43,7 @@ int			is_sign_minus(char *value)
 int			get_sign_minus_index(char *value)
 {
 	int		i;
-	int 	index;
+	int		index;
 
 	i = 0;
 	index = -1;
