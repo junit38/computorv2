@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:44:59 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 17:03:08 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	free_var(t_var *var)
 int		already_exist(t_var *var)
 {
 	t_var		*curs;
-	int 		exist;
+	int			exist;
 
 	curs = g_data->vars;
 	exist = 0;

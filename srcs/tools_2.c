@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:44:47 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 17:02:52 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ double	recursive_power(double nb, int power)
 
 char	*clean_tabs(char *line)
 {
-	int 	i;
+	int		i;
 
 	i = 0;
 	while (line[i])
@@ -37,4 +37,3 @@ char	*clean_tabs(char *line)
 	}
 	return (line);
 }
-

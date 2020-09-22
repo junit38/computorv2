@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:45:13 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 17:03:43 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 char	*get_var_type(char *name, char *value)
 {
 	if (ft_strchr(name, '(') && ft_strchr(name, ')') != 0)
-		return "FUNC";
+		return ("FUNC");
 	else if (ft_strchr(value, 'i'))
-		return "IMG";
+		return ("IMG");
 	else if (ft_strchr(value, '['))
-		return "MAT";
-	return "";
+		return ("MAT");
+	return ("");
 }
 
 t_var	*find_var(char *name)
@@ -43,7 +43,7 @@ void	replace_var(t_var *var)
 {
 	t_var		*curs;
 	t_var		*prec;
-	int 		replaced;;
+	int 		replaced;
 
 	curs = g_data->vars;
 	prec = g_data->vars;

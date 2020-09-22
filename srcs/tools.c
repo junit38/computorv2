@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:44:39 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 17:02:37 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_split(char **split)
 {
-	int 	i;
+	int		i;
 
 	i = 0;
 	while (split[i] != NULL)
@@ -59,8 +59,8 @@ int		is_digit(char *str)
 
 char	*clean_line(char *str)
 {
-	int 	index_start;
-	int 	index_end;
+	int		index_start;
+	int		index_end;
 
 	index_start = 0;
 	while (str[index_start] == ' ' || str[index_start] == '\t')
@@ -72,7 +72,7 @@ char	*clean_line(char *str)
 	return (str + index_start);
 }
 
-int 	get_table_len(char **table)
+int		get_table_len(char **table)
 {
 	int		i;
 
