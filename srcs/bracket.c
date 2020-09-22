@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 17:09:15 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 17:11:52 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int			get_bracket_index_end(char *value)
 	return (index_end);
 }
 
-int 		get_split_index_2(char *value, int last_index, int end)
+static int	get_split_index_2(char *value, int last_index, int end)
 {
 	int			i;
 
