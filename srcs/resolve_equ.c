@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 16:58:12 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 17:15:20 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,14 @@ static char	*find_name(char *name)
 	return (ft_strdup(name));
 }
 
+void		copy_equ_str(char *equ_str, char *finded_name,)
+{
+	ft_strcpy(equ_str, finded_name);
+	ft_strcpy(equ_str + ft_strlen(finded_name), " = ");
+	ft_strcpy(equ_str + ft_strlen(finded_name) + 3, finded_exp);
+	replace_equ_var(equ_str);
+}
+
 void		resolve_equ(char *name, char *exp)
 {
 	char	**split;
@@ -102,10 +110,7 @@ void		resolve_equ(char *name, char *exp)
 				* ft_strlen(finded_name) + ft_strlen(finded_exp) + 4);
 			if (equ_str)
 			{
-				ft_strcpy(equ_str, finded_name);
-				ft_strcpy(equ_str + ft_strlen(finded_name), " = ");
-				ft_strcpy(equ_str + ft_strlen(finded_name) + 3, finded_exp);
-				replace_equ_var(equ_str);
+				copy_equ_str(equ_str, finded_name, finded_exp);
 				ft_computor(equ_str, 0);
 				free(equ_str);
 			}
