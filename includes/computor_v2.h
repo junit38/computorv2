@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:52:39 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 15:54:50 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ int			get_bracket_index_start(char *value);
 int			get_bracket_index_end(char *value);
 int			get_split_index(char *value, int start, int end);
 char		*clean_bracket(char *str);
-int 		get_bracket_index(char *value);
+int			get_bracket_index(char *value);
 
 /*
 ** CHECK
 */
-int 		check_var(char *name, char *exp);
+int			check_var(char *name, char *exp);
 
 /*
 ** CLEAN
@@ -87,9 +87,9 @@ double		find_value(char *value);
 ** MAT
 */
 void		free_mat(int **mat);
-int 		**split_mat(char *value);
-int 		get_mat_len(char *value);
-int 		get_mat_hight(char *value);
+int			**split_mat(char *value);
+int			get_mat_len(char *value);
+int			get_mat_hight(char *value);
 void		print_mat(t_var *var);
 
 /*
@@ -97,7 +97,7 @@ void		print_mat(t_var *var);
 */
 t_param 	*init_param(void);
 void		free_param(t_param *param);
-int 		check_param(t_param *param, t_var *var);
+int			check_param(t_param *param, t_var *var);
 void		print_param(t_param *param);
 
 /*
@@ -110,7 +110,7 @@ void		print_var(void);
 */
 void		set_power(t_param *param, char *value);
 int			is_bracket_power(char *value);
-int 		get_power(char *value);
+int			get_power(char *value);
 void		clean_power(char *value);
 
 /*
@@ -159,7 +159,7 @@ void		free_split(char **split);
 char		*to_lower_case(char *str);
 int			is_digit(char *str);
 char		*clean_line(char *str);
-int 		get_table_len(char **table);
+int			get_table_len(char **table);
 
 /*
 ** TOOLS_2
