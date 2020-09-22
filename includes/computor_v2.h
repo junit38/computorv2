@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 17:43:24 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 17:47:12 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,14 @@ int			get_next_line(int const fd, char **line);
 int			get_bracket_index_start(char *value);
 int			get_bracket_index_end(char *value);
 int			get_split_index(char *value, int start, int end);
-char		*clean_bracket(char *str);
 int			get_bracket_index(char *value);
+
+/*
+** BRACKET_2
+*/
+char		*clean_bracket(char *str);
+void		set_bracket(t_param *param, char *value, int index, int index_end);
+
 
 /*
 ** CHECK

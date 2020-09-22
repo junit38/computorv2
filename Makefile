@@ -50,6 +50,7 @@ SRCS = 	$(LIB)computorv1/computor_v1.c \
 		$(LIB)resolution.c \
 		$(LIB)resolve.c \
 		$(LIB)resolve_equ.c \
+		$(LIB)resolve_equ_2.c \
 		$(LIB)sign.c \
 		$(LIB)signal.c \
 		$(LIB)split_value.c \

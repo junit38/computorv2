@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 17:02:01 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 17:48:55 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,14 @@ static void	split_brace(t_param *param, char *value)
 	if (is_bracket_power(value) && index == 0
 		&& get_power_index_last(value) - 1 == index_end)
 	{
-		param->bracket = 1;
 		param->power = get_power(value);
-		value[index] = ' ';
-		value[index_end] = ' ';
 		clean_power(value);
+		set_bracket(param, value, index, index_end);
 		split_value_2(param, value);
 	}
 	else if (index == 0 && (index_end + 1) == ft_strlen(value))
 	{
-		param->bracket = 1;
-		value[index] = ' ';
-		value[index_end] = ' ';
+		set_bracket(param, value, index, index_end);
 		split_value_2(param, value);
 	}
 	else

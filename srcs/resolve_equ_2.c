@@ -6,13 +6,35 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 17:44:03 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 17:48:23 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor_v2.h"
 
-static char *dup_and_replace(t_var *current_var)
+static void	replace_func_var(char *value, char *func_var)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	while (value[i] && func_var)
+	{
+		if (ft_strncmp(value + i, func_var, ft_strlen(func_var)) == 0)
+		{
+			j = ft_strlen(func_var);
+			while (j > 0 && value[i + j - 1])
+			{
+				value[i + j - 1] = 'X';
+				j--;
+			}
+		}
+		i++;
+	}
+}
+
+static char	*dup_and_replace(t_var *current_var)
 {
 	char	*value;
 
