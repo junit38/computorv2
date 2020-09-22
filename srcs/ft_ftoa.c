@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/24 16:52:17 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:39:19 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 15:59:58 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		get_double_size(double n)
 {
 	double	x;
 	int		size;
-	int 	integer;
+	int		integer;
 
 	x = n;
 	size = 0;
@@ -60,7 +60,6 @@ void	ft_ftoa_cpy(char *tmp, double f, char *n)
 
 char	*ft_ftoa(double f)
 {
-	
 	char		*n;
 	char		*tmp;
 	int			integer;

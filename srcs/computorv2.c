@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:38:04 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 15:59:03 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void		assign_var(char *name, char *exp)
 void		print_and_resolve(char *line)
 {
 	char	**split;
-	char 	*clean;
-	char 	*clean_2;
+	char	*clean;
+	char	*clean_2;
 
 	clean = clean_tabs(get_clean_line(line));
 	if (clean)

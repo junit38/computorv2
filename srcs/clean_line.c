@@ -6,17 +6,17 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:39:02 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 15:58:17 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor_v2.h"
 
-char 		*get_clean_line(char *line)
+char		*get_clean_line(char *line)
 {
-	int 	i;
-	char 	*clean;
-	char 	*tmp;
+	int		i;
+	char	*clean;
+	char	*tmp;
 
 	i = 0;
 	clean = (char*)malloc(sizeof(*clean) * ft_strlen(line) + 2);
@@ -40,11 +40,11 @@ char 		*get_clean_line(char *line)
 	return (clean);
 }
 
-char 		*get_clean_line_2(char *line)
+char		*get_clean_line_2(char *line)
 {
-	size_t 	i;
-	char 	*clean;
-	char 	*tmp;
+	size_t	i;
+	char	*clean;
+	char	*tmp;
 
 	i = 0;
 	clean = (char*)malloc(sizeof(*clean) * ft_strlen(line) + 2);

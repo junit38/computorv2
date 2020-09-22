@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:39:14 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 15:59:23 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char		**exp_split(char *exp, int c)
 {
-	int 	index;
+	int		index;
 	char	**split;
 
 	index = 0;
