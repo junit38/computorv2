@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 17:15:20 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 17:39:00 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,18 +84,26 @@ static char	*find_name(char *name)
 	return (ft_strdup(name));
 }
 
-void		copy_equ_str(char *equ_str, char *finded_name,)
+void		resolve_equ_2(char *finded_name, char *finded_exp)
 {
-	ft_strcpy(equ_str, finded_name);
-	ft_strcpy(equ_str + ft_strlen(finded_name), " = ");
-	ft_strcpy(equ_str + ft_strlen(finded_name) + 3, finded_exp);
-	replace_equ_var(equ_str);
+	char	*equ_str;
+
+	equ_str = (char*)malloc(sizeof(equ_str)
+		* ft_strlen(finded_name) + ft_strlen(finded_exp) + 4);
+	if (equ_str)
+	{
+		ft_strcpy(equ_str, finded_name);
+		ft_strcpy(equ_str + ft_strlen(finded_name), " = ");
+		ft_strcpy(equ_str + ft_strlen(finded_name) + 3, finded_exp);
+		replace_equ_var(equ_str);
+		ft_computor(equ_str, 0);
+		free(equ_str);
+	}
 }
 
 void		resolve_equ(char *name, char *exp)
 {
 	char	**split;
-	char	*equ_str;
 	char	*finded_name;
 	char	*finded_exp;
 
@@ -106,14 +114,7 @@ void		resolve_equ(char *name, char *exp)
 		finded_exp = find_name(split[0]);
 		if (finded_name && finded_exp)
 		{
-			equ_str = (char*)malloc(sizeof(equ_str)
-				* ft_strlen(finded_name) + ft_strlen(finded_exp) + 4);
-			if (equ_str)
-			{
-				copy_equ_str(equ_str, finded_name, finded_exp);
-				ft_computor(equ_str, 0);
-				free(equ_str);
-			}
+			resolve_equ_2(finded_name, finded_exp);
 			free(finded_name);
 			free(finded_exp);
 		}
