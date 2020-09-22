@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:57:12 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 17:09:15 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,11 @@ int			get_bracket_index_end(char *value)
 	return (index_end);
 }
 
-int			get_split_index(char *value, int start, int end)
+int 		get_split_index_2(char *value, int last_index, int end)
 {
-	int		i;
-	int		last_index;
+	int			i;
 
-	i = start;
-	last_index = -1;
-	while (value[i] && value[i] != '+' && value[i] != '-')
-	{
-		if (value[i] && (value[i] == '*' || value[i] == '/' || value[i] == '%'))
-			last_index = i;
-		i--;
-	}
-	if (value[i] == '+' || value[i] == '-')
-		last_index = i;
+	i = 0;
 	if (last_index <= 0)
 	{
 		i = end;
@@ -79,18 +69,23 @@ int			get_split_index(char *value, int start, int end)
 	return (last_index);
 }
 
-char		*clean_bracket(char *str)
+int			get_split_index(char *value, int start, int end)
 {
 	int		i;
+	int		last_index;
 
-	i = 0;
-	while (str[i])
+	i = start;
+	last_index = -1;
+	while (value[i] && value[i] != '+' && value[i] != '-')
 	{
-		if (str[i] == '[' || str[i] == ']')
-			str[i] = ' ';
-		i++;
+		if (value[i] && (value[i] == '*' || value[i] == '/' || value[i] == '%'))
+			last_index = i;
+		i--;
 	}
-	return (str);
+	if (value[i] == '+' || value[i] == '-')
+		last_index = i;
+	last_index = get_split_index_2(value, last_index, end);
+	return (last_index);
 }
 
 int			get_bracket_index(char *value)

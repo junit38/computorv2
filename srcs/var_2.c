@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 17:03:43 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 17:04:57 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ char	*get_var_type(char *name, char *value)
 
 t_var	*find_var(char *name)
 {
-	t_var		*curs;
-	t_var		*finded;
+	t_var	*curs;
+	t_var	*finded;
 
 	curs = g_data->vars;
 	finded = NULL;
@@ -41,9 +41,9 @@ t_var	*find_var(char *name)
 
 void	replace_var(t_var *var)
 {
-	t_var		*curs;
-	t_var		*prec;
-	int 		replaced;
+	t_var	*curs;
+	t_var	*prec;
+	int		replaced;
 
 	curs = g_data->vars;
 	prec = g_data->vars;

@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 16:54:57 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 17:05:45 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ static int	get_b_img(t_param *param)
 	sign = 1;
 	if (param->sym == '-')
 		sign = -1;
-	if (param && param->right && param->left
-		&& param->right->value && param->left->value
-		&& (ft_strcmp(param->right->value, "i") == 0
+	if (param && param->right && param->left && param->right->value
+		&& param->left->value && (ft_strcmp(param->right->value, "i") == 0
 		|| ft_strcmp(param->left->value, "i") == 0)
 		&& param->sym == '*')
 	{

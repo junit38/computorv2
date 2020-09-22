@@ -32,6 +32,7 @@ SRCS = 	$(LIB)computorv1/computor_v1.c \
 		$(LIB)computorv1/tools.c \
 		$(LIB)computorv1/tools_2.c \
 		$(LIB)bracket.c \
+		$(LIB)bracket_2.c \
 		$(LIB)check.c \
 		$(LIB)clean.c \
 		$(LIB)clean_line.c \
