@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 12:39:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/15 11:05:45 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 15:52:45 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,5 @@ int		ft_isend(char const *s1, size_t size);
 size_t	ft_getend(char const *s1, size_t size);
 void	ft_memdel(void **ap);
 void	ft_putchar(char c);
-// void	ft_bzero(char *s, size_t n);
 
 #endif

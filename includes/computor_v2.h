@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:43:16 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 15:52:39 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ void		clean_vars(void);
 /*
 ** CLEAN_LINE
 */
-char 		*get_clean_line(char *line);
-char 		*get_clean_line_2(char *line);
+char		*get_clean_line(char *line);
+char		*get_clean_line_2(char *line);
 
 /*
 ** DATA
@@ -74,13 +74,13 @@ char		*ft_ftoa(double f);
 */
 void		print_func(t_param *param);
 int			is_func(char *name);
-char 		*get_func_var(char *var);
-char 		*get_func_name(char *var);
+char		*get_func_var(char *var);
+char		*get_func_name(char *var);
 
 /*
 ** GET_VALUE
 */
-double 		get_value(t_param *param);
+double		get_value(t_param *param);
 double		find_value(char *value);
 
 /*

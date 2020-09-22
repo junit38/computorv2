@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/17 15:56:02 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 15:50:19 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	ft_print_term(t_term *term)
 	ft_putnbr(term->power);
 }
 
-void	ft_print_part(t_part *part)
+void		ft_print_part(t_part *part)
 {
 	int		i;
 

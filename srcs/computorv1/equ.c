@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/21 11:36:05 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 15:49:40 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,9 +111,7 @@ void		ft_equ_action(t_equ *equ, int display)
 		ft_print_equ(equ);
 	}
 	ft_reduce_equ(equ);
-	// ft_print_equ(equ);
 	ft_compact_equ(equ);
-	// ft_print_equ(equ);
 	ft_short_equ(equ);
 	ft_putstr("Reduced form: ");
 	ft_print_equ(equ);

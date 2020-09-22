@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/21 11:09:57 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 15:49:26 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	ft_get_poly_deg(t_equ *equ)
 	return (polynomial_degree);
 }
 
-int	ft_check_str(char *equ_str)
+int			ft_check_str(char *equ_str)
 {
 	int		i;
 
