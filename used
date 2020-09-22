@@ -1,0 +1,17 @@
+ varA = 2 + 4 *2 - 5 %4 + 2 * (4 + 5)
+27
+varB = 2 * varA - 5 %4
+53
+funA(x) = varA + varB * 4 - 1 / 2 + x
+27 + 211.5 + x
+varC = 2 * varA - varB
+1
+varD = funA(varC)
+239.5
+funA(x) = 2 * 4 + x
+8 + x
+funB(x) = 4 -5 + (x + 2)^2 - 4
+-1 +  ( x + 2)^2 - 4
+ funC(x) = 4x + 5 - 2
+4 * x + 3
+ funA(2) + funB(4) = ?
