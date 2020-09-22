@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 16:59:59 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 17:43:24 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,11 @@ void		resolve_name(char *name);
 ** RESOLVE_EQU
 */
 void		resolve_equ(char *name, char *exp);
+
+/*
+** RESOLVE_EQU_2
+*/
+char		*find_name(char *name);
 
 /*
 ** SIGN

@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 17:39:00 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/22 17:43:52 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,38 +53,7 @@ static void	replace_equ_var(char *value)
 	}
 }
 
-static char	*find_name(char *name)
-{
-	t_var	*current_var;
-	char	**split;
-	char	*value;
-
-	current_var = NULL;
-	value = NULL;
-	if (ft_strchr(name, '('))
-	{
-		split = ft_strsplit(name, '(');
-		if (split)
-		{
-			current_var = find_var(split[0]);
-			if (current_var && ft_strcmp(current_var->type, "FUNC") == 0)
-			{
-				value = ft_strdup(current_var->value);
-				replace_func_var(value, current_var->func_var);
-			}
-			free_split(split);
-			if (value)
-				return (value);
-		}
-	}
-	else
-		current_var = find_var(name);
-	if (current_var)
-		return (ft_strdup(current_var->value));
-	return (ft_strdup(name));
-}
-
-void		resolve_equ_2(char *finded_name, char *finded_exp)
+static void	resolve_equ_2(char *finded_name, char *finded_exp)
 {
 	char	*equ_str;
 
