@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 16:51:40 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/23 12:22:30 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,31 @@ void	free_mat(int **mat)
 		free(mat);
 }
 
+void	split_mat_2(int **split_mat, char **split, int i)
+{
+	char		**split_2;
+	int			j;
+
+	j = 0;
+	split_2 = ft_strsplit(clean_bracket(split[i]), ',');
+	if (split_2)
+	{
+		split_mat[i] = (int*)malloc(sizeof(split_mat)
+			* get_table_len(split_2));
+		while (split_2[j])
+		{
+			split_mat[i][j] = atoi(split_2[j]);
+			j++;
+		}
+		free_split(split_2);
+	}
+}
+
 int		**split_mat(char *value)
 {
 	int			**split_mat;
 	char		**split;
-	char		**split_2;
 	int			i;
-	int			j;
 
 	split_mat = NULL;
 	split = ft_strsplit(value, ';');
@@ -43,19 +61,7 @@ int		**split_mat(char *value)
 			* get_table_len(split) + 1);
 		while (split[i])
 		{
-			j = 0;
-			split_2 = ft_strsplit(clean_bracket(split[i]), ',');
-			if (split_2)
-			{
-				split_mat[i] = (int*)malloc(sizeof(split_mat)
-					* get_table_len(split_2));
-				while (split_2[j])
-				{
-					split_mat[i][j] = atoi(split_2[j]);
-					j++;
-				}
-				free_split(split_2);
-			}
+			split_mat_2(split_mat, split, i);
 			i++;
 		}
 		free_split(split);

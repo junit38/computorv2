@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:59:03 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/23 12:30:01 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,27 +44,21 @@ void		print_and_resolve(char *line)
 {
 	char	**split;
 	char	*clean;
-	char	*clean_2;
 
 	clean = clean_tabs(get_clean_line(line));
 	if (clean)
 	{
-		clean_2 = get_clean_line_2(clean);
-		if (clean_2)
+		split = ft_strsplit(clean, '=');
+		if (split)
 		{
-			split = ft_strsplit(clean, '=');
-			if (split)
+			if (!split[0] || !split[1])
+				printf("computorv2: Error nothing to assign\n");
+			else
 			{
-				if (!split[0] || !split[1])
-					printf("computorv2: Error nothing to assign\n");
-				else
-				{
-					assign_var(to_lower_case(split[0]), split[1]);
-					clean_vars();
-				}
-				free_split(split);
+				assign_var(to_lower_case(split[0]), split[1]);
+				clean_vars();
 			}
-			free(clean_2);
+			free_split(split);
 		}
 		free(clean);
 	}

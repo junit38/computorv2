@@ -6,13 +6,13 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 17:58:34 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/23 12:20:13 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor_v2.h"
 
-char	*get_var_type(char *name, char *value)
+char		*get_var_type(char *name, char *value)
 {
 	if (ft_strchr(name, '(') && ft_strchr(name, ')') != 0)
 		return ("FUNC");
@@ -23,7 +23,7 @@ char	*get_var_type(char *name, char *value)
 	return ("");
 }
 
-t_var	*find_var(char *name)
+t_var		*find_var(char *name)
 {
 	t_var	*curs;
 	t_var	*finded;
@@ -46,7 +46,7 @@ static int	replace_var_2(t_var *var, t_var *curs)
 	return (1);
 }
 
-void	replace_var(t_var *var)
+void		replace_var(t_var *var)
 {
 	t_var	*curs;
 	t_var	*prec;
@@ -75,7 +75,7 @@ void	replace_var(t_var *var)
 	}
 }
 
-void	save_var(t_var *var)
+void		save_var(t_var *var)
 {
 	t_var		*curs;
 
