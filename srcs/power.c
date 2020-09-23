@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 17:04:36 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/23 12:37:22 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		get_power(char *value)
 	if (split)
 	{
 		power = ft_atoi(split[1]);
+		free_split(split);
 	}
 	return (power);
 }
