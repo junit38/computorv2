@@ -6,13 +6,13 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 13:26:09 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 14:56:30 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor_v2.h"
 
-void	resolve_exp_2(t_var *var)
+void		resolve_exp_2(t_var *var)
 {
 	t_param 	*param;
 
@@ -42,7 +42,7 @@ void	resolve_exp_2(t_var *var)
 		resolve_name(var->value);
 }
 
-void	resolve_exp(t_var *var)
+void		resolve_exp(t_var *var)
 {
 	if (var->param == NULL)
 		var->param = split_value(clean_line(var->value));
@@ -55,14 +55,8 @@ void	resolve_exp(t_var *var)
 		resolve_exp_2(var);
 }
 
-void	resolve_name(char *name)
+static void	resolve_name_2(t_param *param, char *name)
 {
-	t_param		*param;
-	
-	param = split_value(clean_line(name));
-	param = resolve_param(param, NULL, NULL);
-	while (can_be_resolved(param))
-		param = resolve_param(param, NULL, NULL);
 	if (is_img(param))
 	{
 		param = reduce_equ(param, 1);
@@ -84,6 +78,17 @@ void	resolve_name(char *name)
 	}
 	else if (param)
 		print_resolution(get_value(param), 1);
+}
+
+void		resolve_name(char *name)
+{
+	t_param		*param;
+	
+	param = split_value(clean_line(name));
+	param = resolve_param(param, NULL, NULL);
+	while (can_be_resolved(param))
+		param = resolve_param(param, NULL, NULL);
+	resolve_name_2(param, name);
 	if (param)
 		free_param(param);
 }
