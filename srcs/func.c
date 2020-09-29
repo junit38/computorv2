@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/28 17:14:36 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 17:02:15 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,7 @@ char	*get_func_replace(char *var)
 	{
 		finded = find_var(split[0]);
 		if (finded)
-		{
 			func_replace = finded->func_var;
-		}
 		free_split(split);
 	}
 	return (func_replace);

@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 14:42:09 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 16:44:06 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -255,6 +255,7 @@ int			get_table_len(char **table);
 */
 double		recursive_power(double nb, int power);
 char		*clean_tabs(char *line);
+int			get_table_len_double(double **table);
 
 /*
 ** VAR

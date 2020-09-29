@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 17:02:52 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 16:41:19 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,14 @@ char	*clean_tabs(char *line)
 		i++;
 	}
 	return (line);
+}
+
+int		get_table_len_double(double **table)
+{
+	int		i;
+
+	i = 0;
+	while (table[i])
+		i++;
+	return (i);
 }

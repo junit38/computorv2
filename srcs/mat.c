@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/25 17:26:37 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 17:28:29 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	split_mat_2(double **split_mat, char **split, int i)
 
 double	**split_mat(char *value)
 {
-	double			**split_mat;
+	double		**split_mat;
 	char		**split;
 	int			i;
 

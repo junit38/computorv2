@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 15:00:09 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 17:28:55 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	resolve_mat(t_param *param)
 
 void		resolve_exp_2(t_var *var)
 {
-	t_param 	*param;
+	t_param		*param;
 
 	if (ft_strcmp(var->type, "MAT") == 0)
 		resolve_mat(var->param);
@@ -61,7 +61,7 @@ void		resolve_exp(t_var *var)
 void		resolve_name(char *name)
 {
 	t_param		*param;
-	
+
 	param = split_value(clean_line(name));
 	param = resolve_param(param, NULL, NULL);
 	while (can_be_resolved(param))

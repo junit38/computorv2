@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/28 15:01:43 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 16:41:34 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,7 @@ double 		**ft_strdup_mat(double **mat, int mat_len)
 
 	i = 0;
 	j = 0;
-	while (mat[i])
-		i++;
-	new_mat = (double**)malloc(sizeof(*mat) * (i + 1));
-	i = 0;
+	new_mat = (double**)malloc(sizeof(*mat) * (get_table_len_double(mat) + 1));
 	if (new_mat)
 	{
 		while (mat[i])

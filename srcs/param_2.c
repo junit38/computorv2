@@ -6,13 +6,13 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 10:33:15 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 16:48:50 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor_v2.h"
 
-void	print_param_mat(t_param *param)
+void		print_param_mat(t_param *param)
 {
 	if (param->left)
 		print_param(param->left);
@@ -32,7 +32,7 @@ void	print_param_mat(t_param *param)
 
 t_param		*ft_strdup_param(t_param *param)
 {
-	t_param 	*new_param;
+	t_param		*new_param;
 
 	new_param = init_param();
 	if (new_param && param)

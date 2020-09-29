@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 14:54:17 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 16:35:34 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int			is_img_squared(t_param *param)
 {
-	int 	ret;
+	int		ret;
 
 	ret = 0;
 	if (param && param->left && param->right && param->right->isimg && param->power == 2)

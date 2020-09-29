@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/28 14:44:32 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 16:37:17 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ double		**product_mat(double **mat, int mat_len, double **mat2, int mat_len_2)
 	return (new_mat);
 }
 
-double	 	**product_mat_param(t_param *param)
+double		**product_mat_param(t_param *param)
 {
 	double		**mat;
 	double		**mat2;
