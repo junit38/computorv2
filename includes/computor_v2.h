@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 13:49:30 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 14:00:14 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -262,9 +262,13 @@ int			already_exist(t_var *var);
 /*
 ** VAR_2
 */
-char		*get_var_type(char *name, char *value);
 t_var		*find_var(char *name);
 void		replace_var(t_var *var);
 void		save_var(t_var *var);
+
+/*
+** VAR_3
+*/
+char		*get_var_type(char *name, char *value);
 
 #endif

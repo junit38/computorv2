@@ -66,7 +66,8 @@ SRCS = 	$(LIB)computorv1/computor_v1.c \
 		$(LIB)tools.c \
 		$(LIB)tools_2.c \
 		$(LIB)var.c \
-		$(LIB)var_2.c
+		$(LIB)var_2.c \
+		$(LIB)var_3.c
 
 OBJS = $(SRCS:.c=.o)
 
