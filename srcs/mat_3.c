@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 17:44:51 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 17:46:13 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ double		**add_mat_param(t_param *param)
 	{
 		mat = param->left->mat;
 		mat2 = param->right->mat;
-		mat = add_mat(param->left->mat, param->left->mat_len, param->right->mat, param->right->mat_len);
+		mat = add_mat(param->left->mat,
+			param->left->mat_len, param->right->mat, param->right->mat_len);
 	}
 	return (mat);
 }
@@ -67,12 +68,13 @@ double		**minus_mat_param(t_param *param)
 	{
 		mat = param->left->mat;
 		mat2 = param->right->mat;
-		mat = minus_mat(param->left->mat, param->left->mat_len, param->right->mat, param->right->mat_len);
+		mat = minus_mat(param->left->mat, param->left->mat_len,
+			param->right->mat, param->right->mat_len);
 	}
 	return (mat);
 }
 
-double 		**divide_mat_param(t_param *param)
+double		**divide_mat_param(t_param *param)
 {
 	double		a;
 	double		**mat;
@@ -124,6 +126,7 @@ double		**modulo_mat_param(t_param *param)
 	else if (param && param->left && param->left->mat && 
 		param->right && param->right->mat && (mat = param->left->mat)
 		&& (mat2 = param->right->mat))
-		mat = modulo_mat(param->left->mat, param->left->mat_len, param->right->mat, param->right->mat_len);
+		mat = modulo_mat(param->left->mat, param->left->mat_len,
+			param->right->mat, param->right->mat_len);
 	return (mat);
 }
