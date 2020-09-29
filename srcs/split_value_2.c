@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 14:30:21 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 14:31:29 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void		split_value_2(t_param *param, char *value)
 		split_sign(param, value, '+');
 	else if (is_sign_minus(value))
 		split_index(param, value, get_sign_minus_index(value));
-	else if (ft_strchr(value, '*') != 0 && ft_strchr(value, '*') != ft_strstr(value, "**"))
+	else if (ft_strchr(value, '*') != 0
+		&& ft_strchr(value, '*') != ft_strstr(value, "**"))
 		split_sign(param, value, '*');
 	else if (ft_strchr(value, '/') != 0)
 		split_sign(param, value, '/');
