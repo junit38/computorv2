@@ -6,13 +6,13 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 14:39:42 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 14:41:45 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor_v2.h"
 
-void	reduce_mat_2(t_param *param)
+static void	reduce_mat_2(t_param *param)
 {
 	double	**mat;
 	int		mat_len;
@@ -27,7 +27,7 @@ void	reduce_mat_2(t_param *param)
 	param->sym = 0;
 }
 
-void	reduce_mat(t_param *param)
+void		reduce_mat(t_param *param)
 {
 	char	*value;
 
@@ -49,7 +49,7 @@ void	reduce_mat(t_param *param)
 		reduce_mat(param->right);
 }
 
-int		can_be_reduced_mat(t_param *param)
+int			can_be_reduced_mat(t_param *param)
 {
 	int		ret;
 
@@ -70,7 +70,7 @@ int		can_be_reduced_mat(t_param *param)
 	return (ret);
 }
 
-void	reduce(t_param *param)
+void		reduce(t_param *param)
 {
 	char		*value;
 
@@ -97,7 +97,7 @@ void	reduce(t_param *param)
 		reduce(param->right);
 }
 
-int		can_be_reduced(t_param *param)
+int			can_be_reduced(t_param *param)
 {
 	int		ret;
 
@@ -112,23 +112,5 @@ int		can_be_reduced(t_param *param)
 		ret = ret | can_be_reduced(param->left);
 	if (param->right)
 		ret = ret | can_be_reduced(param->right);
-	return (ret);
-}
-
-int		can_be_resolved(t_param *param)
-{
-	int		ret;
-
-	ret = 0;
-	if (param && param->value && !is_digit(param->value)
-		&& param->value[0] != '-')
-	{
-		if (find_var(param->value))
-			ret = 1;
-	}
-	if (param && param->left)
-		ret = ret | can_be_resolved(param->left);
-	if (param && param->right)
-		ret = ret | can_be_resolved(param->right);
 	return (ret);
 }

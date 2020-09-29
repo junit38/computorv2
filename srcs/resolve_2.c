@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 12:29:21 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 14:40:33 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		is_mat(t_param *param)
 		ret = ret | is_mat(param->left);
 	if (param && param->right)
 		ret = ret | is_mat(param->right);
-	return (ret); 
+	return (ret);
 }
 
 int		is_img(t_param *param)
@@ -55,10 +55,10 @@ int		is_func_param(t_param *param)
 		ret = ret | is_func_param(param->left);
 	if (param && param->right)
 		ret = ret | is_func_param(param->right);
-	return (ret); 
+	return (ret);
 }
 
-t_param		*resolve_param(t_param *param, char *func_var, char *func_replace)
+t_param	*resolve_param(t_param *param, char *func_var, char *func_replace)
 {
 	t_param 	*tmp_param;
 	t_var		*tmp_var;
@@ -74,7 +74,7 @@ t_param		*resolve_param(t_param *param, char *func_var, char *func_replace)
 		tmp_var = find_var(param->value);
 		if (tmp_var)
 		{
-			tmp_param =	ft_strdup_param(tmp_var->param);
+			tmp_param = ft_strdup_param(tmp_var->param);
 			if (tmp_param && ft_strcmp(tmp_var->type, "FUNC") == 0)
 			{
 				tmp_param->isfunc = 1;

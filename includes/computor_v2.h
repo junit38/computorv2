@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 14:00:14 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 14:42:09 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,11 +196,15 @@ t_param		*resolve_param(t_param *param, char *func_var, char *func_replace);
 /*
 ** RESOLVE_3
 */
-int			can_be_resolved(t_param *param);
 void		reduce_mat(t_param *param);
 int			can_be_reduced_mat(t_param *param);
 void		reduce(t_param *param);
 int			can_be_reduced(t_param *param);
+
+/*
+** RESOLVE_3
+*/
+int			can_be_resolved(t_param *param);
 
 /*
 ** RESOLVE_EQU
