@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 16:41:34 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 17:49:44 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int			get_mat_index(char *value)
 	return (i);
 }
 
-int	 		get_mat_len_param(t_param *param)
+int			get_mat_len_param(t_param *param)
 {
 	double		mat_len;
 
@@ -58,10 +58,10 @@ double		**get_mat(t_param *param)
 	return (mat);
 }
 
-double 		**ft_strdup_mat(double **mat, int mat_len)
+double		**ft_strdup_mat(double **mat, int mat_len)
 {
-	double 	**new_mat;
-	int 	i;
+	double	**new_mat;
+	int		i;
 	int		j;
 
 	i = 0;

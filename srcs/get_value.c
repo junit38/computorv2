@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/28 17:11:22 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 17:49:05 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ double		get_func_value_2(t_var *finded, char *func_var, t_param *param)
 			return (recursive_power(value, param->power));
 		return (recursive_power(atof(func_var), param->power));
 	}
-	else if (param && param->value && !is_digit(param->value) && param->value[0] != '-')
+	else if (param && param->value && !is_digit(param->value)
+		&& param->value[0] != '-')
 		return (recursive_power(find_value(param->value), param->power));
 	else if (param->sym == 0 && param->value && param->value[0])
 		return (recursive_power(atof(param->value), param->power));
@@ -122,7 +123,8 @@ double		get_value(t_param *param)
 		value = get_value(param->left) * get_value(param->right);
 	else if (param && param->sym == '/')
 		value = get_value(param->left) / get_value(param->right);
-	else if (param && param->value && !is_digit(param->value) && param->value[0] != '-')
+	else if (param && param->value && !is_digit(param->value)
+		&& param->value[0] != '-')
 		return (recursive_power(find_value(param->value), param->power));
 	else if (param && param->sym == 0 && param->value && param->value[0])
 		return (recursive_power(atof(param->value), param->power));

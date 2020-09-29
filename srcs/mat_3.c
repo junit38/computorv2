@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 17:46:13 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 17:47:19 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ double		**modulo_mat_param(t_param *param)
 		a = atof(param->right->value);
 		mat = modulo_mat_2(a, mat, param->left->mat_len);
 	}
-	else if (param && param->left && param->left->mat && 
+	else if (param && param->left && param->left->mat &&
 		param->right && param->right->mat && (mat = param->left->mat)
 		&& (mat2 = param->right->mat))
 		mat = modulo_mat(param->left->mat, param->left->mat_len,

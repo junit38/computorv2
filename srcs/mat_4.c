@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/28 14:27:12 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 17:48:38 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ double		**minus_mat(double **mat, int mat_len, double **mat2, int mat_len_2)
 	return (new_mat);
 }
 
-double		**divide_mat(double **mat, int mat_len, double **mat2, int mat_len_2)
+double		**divide_mat(double **mat, int len, double **mat2, int len2)
 {
 	int		i;
 	int		j;
@@ -84,8 +84,8 @@ double		**divide_mat(double **mat, int mat_len, double **mat2, int mat_len_2)
 	while (mat[i] && mat2[i])
 	{
 		j = 0;
-		new_mat[i] = (double*)malloc(sizeof(**new_mat) * mat_len);
-		while (j < mat_len && j < mat_len_2)
+		new_mat[i] = (double*)malloc(sizeof(**new_mat) * len);
+		while (j < mat_len && j < len2)
 		{
 			new_mat[i][j] = mat[i][j] / mat2[i][j];
 			j++;
@@ -96,7 +96,7 @@ double		**divide_mat(double **mat, int mat_len, double **mat2, int mat_len_2)
 	return (new_mat);
 }
 
-double		**modulo_mat(double **mat, int mat_len, double **mat2, int mat_len_2)
+double		**modulo_mat(double **mat, int len, double **mat2, int len2)
 {
 	int		i;
 	int		j;
@@ -112,8 +112,8 @@ double		**modulo_mat(double **mat, int mat_len, double **mat2, int mat_len_2)
 	while (mat[i] && mat2[i])
 	{
 		j = 0;
-		new_mat[i] = (double*)malloc(sizeof(**new_mat) * mat_len);
-		while (j < mat_len && j < mat_len_2)
+		new_mat[i] = (double*)malloc(sizeof(**new_mat) * len);
+		while (j < mat_len && j < len2)
 		{
 			new_mat[i][j] = (int)mat[i][j] % (int)mat2[i][j];
 			j++;
@@ -124,7 +124,7 @@ double		**modulo_mat(double **mat, int mat_len, double **mat2, int mat_len_2)
 	return (new_mat);
 }
 
-double		**multiply_mat(double **mat, int mat_len, double **mat2, int mat_len_2)
+double		**multiply_mat(double **mat, int len, double **mat2, int len2)
 {
 	int		i;
 	int		j;
@@ -140,8 +140,8 @@ double		**multiply_mat(double **mat, int mat_len, double **mat2, int mat_len_2)
 	while (mat[i] && mat2[i])
 	{
 		j = 0;
-		new_mat[i] = (double*)malloc(sizeof(**new_mat) * mat_len);
-		while (j < mat_len && j < mat_len_2)
+		new_mat[i] = (double*)malloc(sizeof(**new_mat) * len);
+		while (j < mat_len && j < len2)
 		{
 			new_mat[i][j] = mat[i][j] * mat2[i][j];
 			j++;

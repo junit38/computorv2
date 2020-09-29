@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 17:36:31 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 17:47:09 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,8 @@ double			**product_mat(double **mat, int len, double **mat2, int len2)
 	double	**new_mat;
 
 	i = 0;
-	new_mat = (double**)malloc(sizeof(*new_mat) * get_table_len_double(mat) + 1);
+	new_mat = (double**)malloc(sizeof(*new_mat)
+		* get_table_len_double(mat) + 1);
 	while (mat[i])
 	{
 		j = 0;
