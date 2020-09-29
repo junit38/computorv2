@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 12:41:48 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 14:53:48 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ double		get_value_img(t_param *param)
 	else if (param && param->sym == '-')
 		value = get_value_img(param->left) - get_value_img(param->right);
 	else if (param && param->sym == '%')
-		value = (int)get_value_img(param->left) % (int)get_value_img(param->right);
+		value = (int)get_value_img(param->left)
+		% (int)get_value_img(param->right);
 	else if (param && param->sym == '*')
 		value = get_value_img(param->left) * get_value_img(param->right);
 	else if (param && param->sym == '/')
 		value = get_value_img(param->left) / get_value_img(param->right);
-	else if (param && param->value && !is_digit(param->value) && param->value[0] != '-')
+	else if (param && param->value && !is_digit(param->value)
+		&& param->value[0] != '-')
 		return (recursive_power(find_value(param->value), param->power));
 	else if (param && param->sym == 0 && param->value && param->value[0])
 		return (recursive_power(atof(param->value), param->power));
@@ -44,12 +46,14 @@ double		get_value_noimg(t_param *param)
 	else if (param && param->sym == '-')
 		value = get_value_noimg(param->left) - get_value_noimg(param->right);
 	else if (param && param->sym == '%')
-		value = (int)get_value_noimg(param->left) % (int)get_value_noimg(param->right);
+		value = (int)get_value_noimg(param->left)
+	% (int)get_value_noimg(param->right);
 	else if (param && param->sym == '*')
 		value = get_value_noimg(param->left) * get_value_noimg(param->right);
 	else if (param && param->sym == '/')
 		value = get_value_noimg(param->left) / get_value_noimg(param->right);
-	else if (param && param->value && !is_digit(param->value) && param->value[0] != '-')
+	else if (param && param->value && !is_digit(param->value)
+		&& param->value[0] != '-')
 		return (recursive_power(find_value(param->value), param->power));
 	else if (param && param->sym == 0 && param->value)
 	{
@@ -64,7 +68,7 @@ static int	get_b_img(t_param *param)
 {
 	if (is_img_squared(param))
 		return (0);
-	return get_value_img(param) - get_value_noimg(param);
+	return (get_value_img(param) - get_value_noimg(param));
 }
 
 static int	get_a_img(t_param *param)
@@ -74,7 +78,7 @@ static int	get_a_img(t_param *param)
 	img = 0;
 	if (is_img_squared(param))
 		img = get_value_img(param) - get_value_noimg(param);
-	return get_value_noimg(param) - img;
+	return (get_value_noimg(param) - img);
 }
 
 t_param		*reduce_equ(t_param *param, int freeparam)

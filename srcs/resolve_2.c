@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 14:48:30 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 14:52:02 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int		is_func_param(t_param *param)
 	return (ret);
 }
 
-t_param *resolve_param_2(t_param *param, char *func_var, char *func_replace)
+t_param	*resolve_param_2(t_param *param, char *func_var, char *func_replace)
 {
 	t_param		*tmp_param;
 	t_var		*tmp_var;
