@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 17:47:09 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 17:58:38 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,14 +96,14 @@ double			**modulo_mat_2(double a, double **mat, int mat_len)
 	return (new_mat);
 }
 
-static double	get_product_mat(double **mat, int mat_len, double **mat2, int i, int j)
+static double	get_prod_mat(double **mat, int len, double **mat2, int i, int j)
 {
 	int		y;
 	double	res;
 
 	res = 0;
 	y = 0;
-	while (y < mat_len)
+	while (y < len)
 	{
 		if (mat[i] && mat[i][y] && mat2[y] && mat2[y][j])
 			res += mat[i][y] * mat2[y][j];
@@ -127,7 +127,7 @@ double			**product_mat(double **mat, int len, double **mat2, int len2)
 		new_mat[i] = (double*)malloc(sizeof(**new_mat) * len2);
 		while (j < len2)
 		{
-			new_mat[i][j] = get_product_mat(mat, len, mat2, i, j);
+			new_mat[i][j] = get_prod_mat(mat, len, mat2, i, j);
 			j++;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 17:48:38 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 17:53:44 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ double		**divide_mat(double **mat, int len, double **mat2, int len2)
 	{
 		j = 0;
 		new_mat[i] = (double*)malloc(sizeof(**new_mat) * len);
-		while (j < mat_len && j < len2)
+		while (j < len && j < len2)
 		{
 			new_mat[i][j] = mat[i][j] / mat2[i][j];
 			j++;
@@ -113,7 +113,7 @@ double		**modulo_mat(double **mat, int len, double **mat2, int len2)
 	{
 		j = 0;
 		new_mat[i] = (double*)malloc(sizeof(**new_mat) * len);
-		while (j < mat_len && j < len2)
+		while (j < len && j < len2)
 		{
 			new_mat[i][j] = (int)mat[i][j] % (int)mat2[i][j];
 			j++;
@@ -141,7 +141,7 @@ double		**multiply_mat(double **mat, int len, double **mat2, int len2)
 	{
 		j = 0;
 		new_mat[i] = (double*)malloc(sizeof(**new_mat) * len);
-		while (j < mat_len && j < len2)
+		while (j < len && j < len2)
 		{
 			new_mat[i][j] = mat[i][j] * mat2[i][j];
 			j++;
