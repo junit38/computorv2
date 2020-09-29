@@ -47,6 +47,7 @@ SRCS = 	$(LIB)computorv1/computor_v1.c \
 		$(LIB)mat_3.c \
 		$(LIB)mat_4.c \
 		$(LIB)mat_5.c \
+		$(LIB)mat_6.c \
 		$(LIB)param.c \
 		$(LIB)param_2.c \
 		$(LIB)power.c \

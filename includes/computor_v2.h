@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 16:44:06 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 17:35:50 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,11 @@ double		**multiply_mat(double **mat, int len, double **mat2, int len_2);
 double		**multiply_mat_2(double a, double **mat2, int mat_len_2);
 double		**divide_mat_2(double a, double **mat2, int mat_len_2);
 double		**modulo_mat_2(double a, double **mat2, int mat_len_2);
+double		**product_mat(double **mat, int len, double **mat2, int len2);
+
+/*
+** MAT_6
+*/
 double		**product_mat_param(t_param *param);
 
 /*

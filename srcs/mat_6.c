@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reduce_equ_2.c                                     :+:      :+:    :+:   */
+/*   mat_6.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 17:30:14 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 17:36:26 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor_v2.h"
 
-int			is_img_squared(t_param *param)
+double		**product_mat_param(t_param *param)
 {
-	int		ret;
+	double		**mat;
+	double		**mat2;
 
-	ret = 0;
-	if (param && param->left && param->right && param->right->isimg
-		&& param->power == 2)
-		ret = 1;
-	if (param && param->left)
-		ret = ret | is_img_squared(param->left);
-	if (param && param->right)
-		ret = ret | is_img_squared(param->right);
-	return (ret);
+	mat = NULL;
+	if (param && param->left && param->left->mat
+		&& param->right && param->right->mat)
+	{
+		mat = param->left->mat;
+		mat2 = param->right->mat;
+		mat = product_mat(param->left->mat, param->left->mat_len, param->right->mat, param->right->mat_len);
+	}
+	return (mat);
 }
