@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/23 12:32:43 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/25 16:34:13 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ t_var	*init_var(char *var, char *exp)
 		new_var->value = ft_strdup(exp);
 		new_var->next = NULL;
 		new_var->param = NULL;
-		new_var->mat = NULL;
-		new_var->mat_len = 0;
 		new_var->error = 0;
 		new_var->reduced = 0;
 	}
@@ -51,8 +49,6 @@ void	free_var(t_var *var)
 			free(var->func_var);
 		if (var->param)
 			free_param(var->param);
-		if (var->mat)
-			free_mat(var->mat);
 		free(var);
 	}
 }

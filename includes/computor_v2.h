@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 17:47:12 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 13:26:53 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void		free_data(void);
 */
 char		**exp_split(char *exp, int c);
 char		**exp_split_index(char *exp, int index);
+char		**exp_split_str(char *exp, char *str);
 
 /*
 ** FT_FTOA
@@ -82,21 +83,57 @@ void		print_func(t_param *param);
 int			is_func(char *name);
 char		*get_func_var(char *var);
 char		*get_func_name(char *var);
+char		*get_func_replace(char *var);
 
 /*
 ** GET_VALUE
 */
 double		get_value(t_param *param);
 double		find_value(char *value);
+double		get_func_value(t_var *finded, char *func_var, t_param *param); // dismiss
 
 /*
 ** MAT
 */
-void		free_mat(int **mat);
-int			**split_mat(char *value);
+void		free_mat(double **mat);
+double		**split_mat(char *value);
 int			get_mat_len(char *value);
 int			get_mat_hight(char *value);
-void		print_mat(t_var *var);
+void		print_mat(double **mat, int mat_len, int newline);
+
+/*
+** MAT_2
+*/
+int			get_mat_index(char *value);
+int	 		get_mat_len_param(t_param *param);
+double		**get_mat(t_param *param);
+double 		**ft_strdup_mat(double **mat, int mat_len);
+
+/*
+** MAT_3
+*/
+double 		**multiply_mat_param(t_param *param);
+double 		**add_mat_param(t_param *param);
+double 		**minus_mat_param(t_param *param);
+double 		**divide_mat_param(t_param *param);
+double 		**modulo_mat_param(t_param *param);
+
+/*
+** MAT_4
+*/
+double		**add_mat(double **mat, int mat_len, double **mat2, int mat_len_2);
+double		**minus_mat(double **mat, int mat_len, double **mat2, int mat_len_2);
+double		**divide_mat(double **mat, int mat_len, double **mat2, int mat_len_2);
+double		**modulo_mat(double **mat, int mat_len, double **mat2, int mat_len_2);
+double		**multiply_mat(double **mat, int mat_len, double **mat2, int mat_len_2);
+
+/*
+** MAT_5
+*/
+double		**multiply_mat_2(double a, double **mat2, int mat_len_2);
+double		**divide_mat_2(double a, double **mat2, int mat_len_2);
+double		**modulo_mat_2(double a, double **mat2, int mat_len_2);
+double	 	**product_mat_param(t_param *param);
 
 /*
 ** PARAM
@@ -106,6 +143,12 @@ void		free_param(t_param *param);
 void		clean_param(t_param *param);
 int			check_param(t_param *param, t_var *var);
 void		print_param(t_param *param);
+
+/*
+** PARAM_2
+*/
+void		print_param_mat(t_param *param);
+t_param		*ft_strdup_param(t_param *param);
 
 /*
 ** PRINT
@@ -119,17 +162,22 @@ void		set_power(t_param *param, char *value);
 int			is_bracket_power(char *value);
 int			get_power(char *value);
 void		clean_power(char *value);
-size_t		get_power_index_last(char *value);
+int			get_power_index_last(char *value);
 
 /*
 ** REDUCE_EQU
 */
-void		reduce_equ(t_var *var);
+t_param		*reduce_equ(t_param *param, int freeparam);
+
+/*
+** REDUCE_EQU_2
+*/
+int			is_img_squared(t_param *param);
 
 /*
 ** RESOLUTION
 */
-void		print_resolution(double f);
+void		print_resolution(double f, int newline);
 
 /*
 ** RESOLVE
@@ -137,6 +185,23 @@ void		print_resolution(double f);
 void		resolve_exp_2(t_var *var);
 void		resolve_exp(t_var *var);
 void		resolve_name(char *name);
+
+/*
+** RESOLVE_2
+*/
+int			is_mat(t_param *param);
+int			is_img(t_param *param);
+int			is_func_param(t_param *param);
+t_param		*resolve_param(t_param *param, char *func_var, char *func_replace);
+
+/*
+** RESOLVE_3
+*/
+int			can_be_resolved(t_param *param);
+void		reduce_mat(t_param *param);
+int			can_be_reduced_mat(t_param *param);
+void		reduce(t_param *param);
+int			can_be_reduced(t_param *param);
 
 /*
 ** RESOLVE_EQU
@@ -161,6 +226,14 @@ void		init_signal(void);
 
 /*
 ** SPLIT_VALUE
+*/
+void		split_sign(t_param *param, char *value, int c);
+void		split_str(t_param *param, char *value, char *str);
+void		split_index(t_param *param, char *value, size_t index);
+void		split_brace(t_param *param, char *value);
+
+/*
+** SPLIT_VALUE_2
 */
 t_param		*split_value(char *value);
 void		split_value_2(t_param *param, char *value);

@@ -6,87 +6,102 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 17:05:45 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 12:41:48 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor_v2.h"
 
+double		get_value_img(t_param *param)
+{
+	double		value;
+
+	value = 0;
+	if (param && param->sym == '+')
+		value = get_value_img(param->left) + get_value_img(param->right);
+	else if (param && param->sym == '-')
+		value = get_value_img(param->left) - get_value_img(param->right);
+	else if (param && param->sym == '%')
+		value = (int)get_value_img(param->left) % (int)get_value_img(param->right);
+	else if (param && param->sym == '*')
+		value = get_value_img(param->left) * get_value_img(param->right);
+	else if (param && param->sym == '/')
+		value = get_value_img(param->left) / get_value_img(param->right);
+	else if (param && param->value && !is_digit(param->value) && param->value[0] != '-')
+		return (recursive_power(find_value(param->value), param->power));
+	else if (param && param->sym == 0 && param->value && param->value[0])
+		return (recursive_power(atof(param->value), param->power));
+	return (recursive_power(value, param->power));
+}
+
+double		get_value_noimg(t_param *param)
+{
+	double		value;
+
+	value = 0;
+	if (param && param->sym == '+')
+		value = get_value_noimg(param->left) + get_value_noimg(param->right);
+	else if (param && param->sym == '-')
+		value = get_value_noimg(param->left) - get_value_noimg(param->right);
+	else if (param && param->sym == '%')
+		value = (int)get_value_noimg(param->left) % (int)get_value_noimg(param->right);
+	else if (param && param->sym == '*')
+		value = get_value_noimg(param->left) * get_value_noimg(param->right);
+	else if (param && param->sym == '/')
+		value = get_value_noimg(param->left) / get_value_noimg(param->right);
+	else if (param && param->value && !is_digit(param->value) && param->value[0] != '-')
+		return (recursive_power(find_value(param->value), param->power));
+	else if (param && param->sym == 0 && param->value)
+	{
+		if (param->isimg)
+			return (0);
+		return (recursive_power(atof(param->value), param->power));
+	}
+	return (recursive_power(value, param->power));
+}
+
 static int	get_b_img(t_param *param)
 {
-	int		b;
-	int		sign;
-
-	b = 0;
-	sign = 1;
-	if (param->sym == '-')
-		sign = -1;
-	if (param && param->right && param->left && param->right->value
-		&& param->left->value && (ft_strcmp(param->right->value, "i") == 0
-		|| ft_strcmp(param->left->value, "i") == 0)
-		&& param->sym == '*')
-	{
-		if (ft_strcmp(param->right->value, "i") == 0)
-			b += atoi(param->left->value) * sign;
-		else if (ft_strcmp(param->left->value, "i") == 0)
-			b += atoi(param->right->value) * sign;
-	}
-	else
-	{
-		if (param && param->left)
-			b += get_b_img(param->left);
-		if (param && param->right)
-			b += get_b_img(param->right);
-	}
-	return (b);
+	if (is_img_squared(param))
+		return (0);
+	return get_value_img(param) - get_value_noimg(param);
 }
 
 static int	get_a_img(t_param *param)
 {
-	int		a;
-	int		sign;
+	int		img;
 
-	a = 0;
-	sign = 1;
-	if (param->sym == '-')
-		sign = -1;
-	if (param && param->right && param->left
-		&& param->right->value && param->left->value
-		&& (ft_strcmp(param->right->value, "i") == 0
-		|| ft_strcmp(param->left->value, "i") == 0))
-		return (0);
-	if (param && param->left)
-		a += get_a_img(param->left);
-	if (param && param->right)
-		a += get_a_img(param->right) * sign;
-	if (param && param->value && param->sym == 0)
-		a += atoi(param->value);
-	return (a);
+	img = 0;
+	if (is_img_squared(param))
+		img = get_value_img(param) - get_value_noimg(param);
+	return get_value_noimg(param) - img;
 }
 
-void		reduce_equ(t_var *var)
+t_param		*reduce_equ(t_param *param, int freeparam)
 {
-	t_param		*param;
+	t_param		*new_param;
 	int			val;
 
-	param = init_param();
-	param->right = init_param();
-	param->right->right = init_param();
-	param->right->left = init_param();
-	param->right->right->value = ft_strdup("i");
-	param->right->right->sym = '*';
-	param->right->left->value = ft_itoa(get_b_img(var->param));
-	param->left = init_param();
-	param->left->value = ft_itoa(get_a_img(var->param));
-	val = atoi(param->right->left->value);
+	new_param = init_param();
+	new_param->right = init_param();
+	new_param->right->right = init_param();
+	new_param->right->left = init_param();
+	new_param->right->right->value = ft_strdup("1");
+	new_param->right->right->isimg = 1;
+	new_param->right->right->sym = '*';
+	new_param->right->left->value = ft_itoa(get_b_img(param));
+	new_param->left = init_param();
+	new_param->left->value = ft_itoa(get_a_img(param));
+	val = atoi(new_param->right->left->value);
 	if (val < 0)
 	{
-		free(param->right->left->value);
-		param->right->left->value = ft_itoa(val * -1);
-		param->sym = '-';
+		free(new_param->right->left->value);
+		new_param->right->left->value = ft_itoa(val * -1);
+		new_param->sym = '-';
 	}
 	else
-		param->sym = '+';
-	free_param(var->param);
-	var->param = param;
+		new_param->sym = '+';
+	if (freeparam)
+		free_param(param);
+	return (new_param);
 }

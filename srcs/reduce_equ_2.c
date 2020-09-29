@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   reduce_equ_2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/22 16:09:19 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 10:18:57 by mery             ###   ########.fr       */
+/*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
+/*   Updated: 2020/09/29 12:42:10 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft.h>
+#include "computor_v2.h"
 
-int		ft_strequ(char const *s1, char const *s2)
+int			is_img_squared(t_param *param)
 {
-	unsigned int	i;
-	int				eq;
+	int 	ret;
 
-	i = 0;
-	eq = 1;
-	while (s1[i] != '\0' && s2[i] != '\0' && eq == 1)
-	{
-		if (s1[i] != s2[i])
-			eq = 0;
-		i++;
-	}
-	if (s1[i] != s2[i])
-		eq = 0;
-	return (eq);
+	ret = 0;
+	if (param && param->left && param->right && param->right->isimg && param->power == 2)
+		ret = 1;
+	if (param && param->left)
+		ret = ret | is_img_squared(param->left);
+	if (param && param->right)
+		ret = ret | is_img_squared(param->right);
+	return (ret);
 }

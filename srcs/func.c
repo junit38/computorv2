@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 16:49:02 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/28 17:14:36 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,12 @@ void	print_func(t_param *param)
 	}
 	if (param->right)
 		print_func(param->right);
-	if (param->value)
+	if (param->isimg)
+		ft_putstr("i");
+	else if (param->value)
 		ft_putstr(param->value);
+	if (param->mat)
+		print_mat(param->mat, param->mat_len, 0);
 	if (param->bracket)
 		ft_putstr(")");
 	if (param->power != 1)
@@ -88,4 +92,24 @@ char	*get_func_name(char *var)
 		free_split(split);
 	}
 	return (name);
+}
+
+char	*get_func_replace(char *var)
+{
+	char		**split;
+	t_var		*finded;
+	char		*func_replace;
+
+	split = ft_strsplit(var, '(');
+	func_replace = NULL;
+	if (split && split[1])
+	{
+		finded = find_var(split[0]);
+		if (finded)
+		{
+			func_replace = finded->func_var;
+		}
+		free_split(split);
+	}
+	return (func_replace);
 }

@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:57:30 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/24 10:09:14 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int			check_bracket_2(char *value)
 		if (value[i] == '[')
 			opened++;
 		if (value[i] == ']' && (!value[i + 1] || (value[i + 1]
-			&& (value[i + 1] == ';' || value[i + 1] == ']'))))
+			&& (value[i + 1] == ';' || value[i + 1] == ']'
+				|| value[i + 1] == ' ' ))))
 			opened--;
 		i++;
 	}

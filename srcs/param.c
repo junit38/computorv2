@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 16:56:17 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/28 17:15:13 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,13 @@ t_param	*init_param(void)
 		param->left = NULL;
 		param->right = NULL;
 		param->value = NULL;
+		param->mat = NULL;
+		param->mat_len = 0;
 		param->sym = 0;
 		param->bracket = 0;
 		param->power = 1;
+		param->isfunc = 0;
+		param->isimg = 0;
 	}
 	return (param);
 }
@@ -39,6 +43,8 @@ void	free_param(t_param *param)
 			free_param(param->right);
 		if (param->value)
 			free(param->value);
+		if (param->mat)
+			free_mat(param->mat);
 		if (param)
 			free(param);
 	}
@@ -54,6 +60,8 @@ void	clean_param(t_param *param)
 			free_param(param->right);
 		if (param->value)
 			free(param->value);
+		if (param->mat)
+			free_mat(param->mat);
 	}
 }
 
@@ -77,10 +85,20 @@ void	print_param(t_param *param)
 {
 	if (param->left)
 		print_param(param->left);
-	if (param->sym && param->sym != '*')
-		printf(" %c ", param->sym);
+	if (param->sym && param->sym != '*' && param->sym != -1)
+	{
+		ft_putchar(' ');
+		ft_putchar(param->sym);
+		ft_putchar(' ');
+	}
+	if (param->sym == -1)
+		ft_putstr(" ** ");
 	if (param->right)
 		print_param(param->right);
-	if (param->value)
-		printf("%s", param->value);
+	if (param->isimg)
+		ft_putstr("i");
+	else if (param->value)
+		ft_putstr(param->value);
+	if (param->mat)
+		print_mat(param->mat, param->mat_len, 0);
 }

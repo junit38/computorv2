@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/23 12:18:34 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/28 17:11:22 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,16 @@ double		get_func_value_2(t_var *finded, char *func_var, t_param *param)
 {
 	double	value;
 
-	if (ft_strcmp(param->value, finded->func_var) == 0)
+	if (param && param->value && finded && finded->func_var
+		&& ft_strcmp(param->value, finded->func_var) == 0)
 	{
 		value = find_value(func_var);
 		if (value != 0)
 			return (recursive_power(value, param->power));
 		return (recursive_power(atof(func_var), param->power));
 	}
-	else if (!is_digit(param->value) && param->value[0] != '-')
-		return (find_value(param->value));
+	else if (param && param->value && !is_digit(param->value) && param->value[0] != '-')
+		return (recursive_power(find_value(param->value), param->power));
 	else if (param->sym == 0 && param->value && param->value[0])
 		return (recursive_power(atof(param->value), param->power));
 	return (0);
@@ -35,19 +36,19 @@ double		get_func_value(t_var *finded, char *func_var, t_param *param)
 	double		value;
 
 	value = 0;
-	if (param->sym == '+')
+	if (param && param->sym == '+')
 		value = get_func_value(finded, func_var, param->left)
 		+ get_func_value(finded, func_var, param->right);
-	else if (param->sym == '-')
+	else if (param && param->sym == '-')
 		value = get_func_value(finded, func_var, param->left)
 		- get_func_value(finded, func_var, param->right);
-	else if (param->sym == '%')
+	else if (param && param->sym == '%')
 		value = (int)get_func_value(finded, func_var, param->left)
 		% (int)get_func_value(finded, func_var, param->right);
-	else if (param->sym == '*')
+	else if (param && param->sym == '*')
 		value = get_func_value(finded, func_var, param->left)
 		* get_func_value(finded, func_var, param->right);
-	else if (param->sym == '/')
+	else if (param && param->sym == '/' && func_var)
 		value = get_func_value(finded, func_var, param->left)
 		/ get_func_value(finded, func_var, param->right);
 	else if (value == 0)
@@ -101,7 +102,7 @@ double		find_value(char *value)
 	}
 	if (func_var)
 		free(func_var);
-	if (finded)
+	if (finded && finded->param)
 		return (get_value(finded->param));
 	return (0);
 }
@@ -111,19 +112,19 @@ double		get_value(t_param *param)
 	double		value;
 
 	value = 0;
-	if (param->sym == '+')
+	if (param && param->sym == '+')
 		value = get_value(param->left) + get_value(param->right);
-	else if (param->sym == '-')
+	else if (param && param->sym == '-')
 		value = get_value(param->left) - get_value(param->right);
-	else if (param->sym == '%')
+	else if (param && param->sym == '%')
 		value = (int)get_value(param->left) % (int)get_value(param->right);
-	else if (param->sym == '*')
+	else if (param && param->sym == '*')
 		value = get_value(param->left) * get_value(param->right);
-	else if (param->sym == '/')
+	else if (param && param->sym == '/')
 		value = get_value(param->left) / get_value(param->right);
-	else if (!is_digit(param->value) && param->value[0] != '-')
-		return (find_value(param->value));
-	else if (param->sym == 0 && param->value && param->value[0])
+	else if (param && param->value && !is_digit(param->value) && param->value[0] != '-')
+		return (recursive_power(find_value(param->value), param->power));
+	else if (param && param->sym == 0 && param->value && param->value[0])
 		return (recursive_power(atof(param->value), param->power));
 	return (recursive_power(value, param->power));
 }

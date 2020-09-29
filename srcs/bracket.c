@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 17:11:52 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 13:22:48 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,12 @@ static int	get_split_index_2(char *value, int last_index, int end)
 
 int			get_split_index(char *value, int start, int end)
 {
-	int		i;
+	size_t	i;
 	int		last_index;
 
 	i = start;
 	last_index = -1;
-	while (value[i] && value[i] != '+' && value[i] != '-')
+	while (value[i] && value[i] != '+' && value[i] != '-' && last_index == -1)
 	{
 		if (value[i] && (value[i] == '*' || value[i] == '/' || value[i] == '%'))
 			last_index = i;

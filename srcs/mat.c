@@ -6,13 +6,13 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/23 12:22:30 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/25 17:26:37 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor_v2.h"
 
-void	free_mat(int **mat)
+void	free_mat(double **mat)
 {
 	int		i;
 
@@ -26,7 +26,7 @@ void	free_mat(int **mat)
 		free(mat);
 }
 
-void	split_mat_2(int **split_mat, char **split, int i)
+void	split_mat_2(double **split_mat, char **split, int i)
 {
 	char		**split_2;
 	int			j;
@@ -35,7 +35,7 @@ void	split_mat_2(int **split_mat, char **split, int i)
 	split_2 = ft_strsplit(clean_bracket(split[i]), ',');
 	if (split_2)
 	{
-		split_mat[i] = (int*)malloc(sizeof(split_mat)
+		split_mat[i] = (double*)malloc(sizeof(split_mat)
 			* get_table_len(split_2));
 		while (split_2[j])
 		{
@@ -46,9 +46,9 @@ void	split_mat_2(int **split_mat, char **split, int i)
 	}
 }
 
-int		**split_mat(char *value)
+double	**split_mat(char *value)
 {
-	int			**split_mat;
+	double			**split_mat;
 	char		**split;
 	int			i;
 
@@ -57,7 +57,7 @@ int		**split_mat(char *value)
 	if (split)
 	{
 		i = 0;
-		split_mat = (int**)malloc(sizeof(*split_mat)
+		split_mat = (double**)malloc(sizeof(*split_mat)
 			* get_table_len(split) + 1);
 		while (split[i])
 		{
@@ -91,24 +91,26 @@ int		get_mat_len(char *value)
 	return (len);
 }
 
-void	print_mat(t_var *var)
+void	print_mat(double **mat, int mat_len, int newline)
 {
 	int			i;
 	int			j;
 
 	i = 0;
-	while (var->mat[i])
+	while (mat && mat[i])
 	{
 		j = 0;
-		ft_putstr("[ ");
-		while (j < var->mat_len)
+		printf("[ ");
+		while (j < mat_len)
 		{
-			ft_putnbr(var->mat[i][j]);
-			if (j + 1 < var->mat_len)
-				ft_putstr(" , ");
+			print_resolution(mat[i][j], 0);
+			if (j + 1 < mat_len)
+				printf(" , ");
 			j++;
 		}
-		ft_putstr(" ]\n");
+		printf(" ]");
+		if (mat[i + 1] && newline)
+			printf("\n");
 		i++;
 	}
 }

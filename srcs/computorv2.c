@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/23 12:30:01 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/25 17:23:44 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,7 @@ void		assign_var(char *name, char *exp)
 		resolve_exp(current_var);
 	}
 	else if (ft_strcmp(clean_line(exp), "?") == 0)
-	{
-		current_var = find_var(name);
-		if (current_var)
-			resolve_exp_2(current_var);
-		else
-			resolve_name(name);
-	}
+		resolve_name(name);
 	else
 		resolve_equ(clean_line(name), exp);
 }
@@ -84,10 +78,8 @@ void		read_command_line(void)
 	free(line);
 }
 
-int			main(int argc, char **argv)
+int			main(void)
 {
-	(void)argc;
-	(void)argv;
 	init_signal();
 	g_data = init_data();
 	read_command_line();
