@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 14:24:06 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 14:30:21 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ static void	set_param_img(t_param *param)
 		free(param->value);
 		param->value = ft_strdup("1");
 	}
+}
+
+static void	set_mat(t_param *param, char *value)
+{
+	param->mat = split_mat(value);
+	param->mat_len = get_mat_len(value);
 }
 
 void		split_value_2(t_param *param, char *value)
@@ -37,10 +43,7 @@ void		split_value_2(t_param *param, char *value)
 	else if (ft_strstr(value, "**") != 0)
 		split_str(param, value, "**");
 	else if (get_mat_index(value) == 0)
-	{
-		param->mat = split_mat(value);
-		param->mat_len = get_mat_len(value);
-	}
+		set_mat(param, value);
 	else
 	{
 		if (ft_strchr(value, '^'))

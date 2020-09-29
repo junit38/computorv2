@@ -6,13 +6,13 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 13:21:02 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 14:29:49 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor_v2.h"
 
-void	split_sign(t_param *param, char *value, int c)
+void		split_sign(t_param *param, char *value, int c)
 {
 	char	**split;
 
@@ -29,7 +29,7 @@ void	split_sign(t_param *param, char *value, int c)
 	}
 }
 
-void	split_str(t_param *param, char *value, char *str)
+void		split_str(t_param *param, char *value, char *str)
 {
 	char	**split;
 
@@ -46,7 +46,7 @@ void	split_str(t_param *param, char *value, char *str)
 	}
 }
 
-void	split_index(t_param *param, char *value, size_t index)
+void		split_index(t_param *param, char *value, size_t index)
 {
 	char	**split;
 
@@ -63,7 +63,13 @@ void	split_index(t_param *param, char *value, size_t index)
 	}
 }
 
-void	split_brace(t_param *param, char *value)
+static void	set_bra_and_split(t_param *param, char *value, int i, int i_end)
+{
+	set_bracket(param, value, i, i_end);
+	split_value_2(param, value);
+}
+
+void		split_brace(t_param *param, char *value)
 {
 	int		index;
 	int		index_end;
@@ -75,14 +81,10 @@ void	split_brace(t_param *param, char *value)
 	{
 		param->power = get_power(value);
 		clean_power(value);
-		set_bracket(param, value, index, index_end);
-		split_value_2(param, value);
+		set_bra_and_split(param, value, index, index_end);
 	}
 	else if (index == 0 && (index_end + 1) == (int)ft_strlen(value))
-	{
-		set_bracket(param, value, index, index_end);
-		split_value_2(param, value);
-	}
+		set_bra_and_split(param, value, index, index_end);
 	else
 	{
 		index = get_split_index(value, index, index_end);
