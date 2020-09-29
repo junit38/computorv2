@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 13:26:53 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 13:49:30 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int			get_bracket_index(char *value);
 */
 char		*clean_bracket(char *str);
 void		set_bracket(t_param *param, char *value, int index, int index_end);
-
 
 /*
 ** CHECK
@@ -90,7 +89,7 @@ char		*get_func_replace(char *var);
 */
 double		get_value(t_param *param);
 double		find_value(char *value);
-double		get_func_value(t_var *finded, char *func_var, t_param *param); // dismiss
+double		get_func_value(t_var *finded, char *func_var, t_param *param);
 
 /*
 ** MAT
@@ -105,27 +104,27 @@ void		print_mat(double **mat, int mat_len, int newline);
 ** MAT_2
 */
 int			get_mat_index(char *value);
-int	 		get_mat_len_param(t_param *param);
+int			get_mat_len_param(t_param *param);
 double		**get_mat(t_param *param);
-double 		**ft_strdup_mat(double **mat, int mat_len);
+double		**ft_strdup_mat(double **mat, int mat_len);
 
 /*
 ** MAT_3
 */
-double 		**multiply_mat_param(t_param *param);
-double 		**add_mat_param(t_param *param);
-double 		**minus_mat_param(t_param *param);
-double 		**divide_mat_param(t_param *param);
-double 		**modulo_mat_param(t_param *param);
+double		**multiply_mat_param(t_param *param);
+double		**add_mat_param(t_param *param);
+double		**minus_mat_param(t_param *param);
+double		**divide_mat_param(t_param *param);
+double		**modulo_mat_param(t_param *param);
 
 /*
 ** MAT_4
 */
-double		**add_mat(double **mat, int mat_len, double **mat2, int mat_len_2);
-double		**minus_mat(double **mat, int mat_len, double **mat2, int mat_len_2);
-double		**divide_mat(double **mat, int mat_len, double **mat2, int mat_len_2);
-double		**modulo_mat(double **mat, int mat_len, double **mat2, int mat_len_2);
-double		**multiply_mat(double **mat, int mat_len, double **mat2, int mat_len_2);
+double		**add_mat(double **mat, int len, double **mat2, int len_2);
+double		**minus_mat(double **mat, int len, double **mat2, int len_2);
+double		**divide_mat(double **mat, int len, double **mat2, int len_2);
+double		**modulo_mat(double **mat, int len, double **mat2, int len_2);
+double		**multiply_mat(double **mat, int len, double **mat2, int len_2);
 
 /*
 ** MAT_5
@@ -133,7 +132,7 @@ double		**multiply_mat(double **mat, int mat_len, double **mat2, int mat_len_2);
 double		**multiply_mat_2(double a, double **mat2, int mat_len_2);
 double		**divide_mat_2(double a, double **mat2, int mat_len_2);
 double		**modulo_mat_2(double a, double **mat2, int mat_len_2);
-double	 	**product_mat_param(t_param *param);
+double		**product_mat_param(t_param *param);
 
 /*
 ** PARAM

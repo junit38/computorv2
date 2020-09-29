@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/28 16:13:21 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 13:47:46 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ typedef struct		s_var
 	char			*func_var;
 	struct s_param	*param;
 	struct s_var	*next;
-	// double			**mat;
-	// int				mat_len;
 	int				error;
 	int				reduced;
 }					t_var;
