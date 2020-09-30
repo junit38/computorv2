@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:58:17 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/30 19:02:30 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,15 @@ char		*get_clean_line_2(char *line)
 	tmp = clean;
 	while (line[i] && i < ft_strlen(line))
 	{
-		if (line[i] == '-')
+		if (line[i] == '^')
 		{
+
 			tmp = clean;
 			clean = (char*)malloc(sizeof(*clean) * ft_strlen(line) + 5);
-			clean = ft_strncpy(clean, line, i + 1);
-			clean = ft_strcat(clean, "0 - ");
-			clean = ft_strcat(clean, line + i + 1);
+			clean = clean_line(ft_strncpy(clean, clean_line(line), i));
+			clean = ft_strcat(clean, "^");
+			clean = ft_strcat(clean, clean_line(line + i + 1));
 			line = clean;
-			i = i + 5;
 			if (tmp)
 				free(tmp);
 		}

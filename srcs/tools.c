@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 16:40:59 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/30 18:58:36 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ char	*clean_line(char *str)
 	int		index_end;
 
 	index_start = 0;
-	while (str[index_start] == ' ' || str[index_start] == '\t')
+	while (str[index_start] && (str[index_start] == ' ' || str[index_start] == '\t'))
 		index_start++;
 	index_end = ft_strlen(str) - 1;
-	while (str[index_end] == ' ' || str[index_end] == '\t')
+	while (str[index_end] && (str[index_end] == ' ' || str[index_end] == '\t'))
 		index_end--;
 	str[index_end + 1] = '\0';
 	return (str + index_start);
