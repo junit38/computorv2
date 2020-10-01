@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/01 14:04:35 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/01 14:10:30 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,43 +112,3 @@ int			get_split_index(char *value)
 		split_index = get_split_index_2(value);
 	return (split_index);
 }
-
-// static int	get_split_index_2(char *value, int last_index, int end)
-// {
-// 	int			i;
-
-// 	i = 0;
-// 	if (last_index <= 0)
-// 	{
-// 		i = end;
-// 		while (value[i] && value[i] != '+' && value[i] != '-')
-// 		{
-// 			if (value[i] && (value[i] == '*' || value[i] == '/'
-// 				|| value[i] == '%'))
-// 				last_index = i;
-// 			i++;
-// 		}
-// 		if (value[i] == '+' || value[i] == '-')
-// 			last_index = i;
-// 	}
-// 	return (last_index);
-// }
-
-// int			get_split_index(char *value, int start, int end)
-// {
-// 	int		i;
-// 	int		last_index;
-
-// 	i = start;
-// 	last_index = -1;
-// 	while (value[i] && value[i] != '+' && value[i] != '-')
-// 	{
-// 		if (value[i] && (value[i] == '*' || value[i] == '/' || value[i] == '%'))
-// 			last_index = i;
-// 		i--;
-// 	}
-// 	if (value[i] == '+' || value[i] == '-')
-// 		last_index = i;
-// 	last_index = get_split_index_2(value, last_index, end);
-// 	return (last_index);
-// }
