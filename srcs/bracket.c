@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/30 18:54:11 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/01 13:31:52 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static int	is_in_bracket(char *value, int i)
 	return (0);
 }
 
-static int 	get_split_index_2(char *value)
+static int	get_split_index_2(char *value)
 {
 	int		i;
 	int		split_index;
@@ -102,7 +102,8 @@ int			get_split_index(char *value)
 		i = 0;
 		while (value[i] && split_index == -1)
 		{
-			if (!is_in_bracket(value, i) && (value[i] == '*' || value[i] == '/'))
+			if (!is_in_bracket(value, i) && (value[i] == '*'
+				|| value[i] == '/'))
 				split_index = i;
 			i++;
 		}

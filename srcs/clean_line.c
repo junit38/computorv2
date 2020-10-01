@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/30 19:02:30 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/01 13:32:03 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ char		*get_clean_line_2(char *line)
 	{
 		if (line[i] == '^')
 		{
-
 			tmp = clean;
 			clean = (char*)malloc(sizeof(*clean) * ft_strlen(line) + 5);
 			clean = clean_line(ft_strncpy(clean, clean_line(line), i));
