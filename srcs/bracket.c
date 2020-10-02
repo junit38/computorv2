@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/01 14:10:30 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/02 17:52:27 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,7 @@ static int	get_split_index_2(char *value)
 	split_index = -1;
 	while (value[i])
 	{
-		if (!is_in_bracket(value, i) && (value[i] == '*'
-			|| value[i] == '/'))
+		if (!is_in_bracket(value, i) && value[i] == '%')
 			split_index = i;
 		i++;
 	}
@@ -103,7 +102,8 @@ int			get_split_index(char *value)
 		i = 0;
 		while (value[i])
 		{
-			if (!is_in_bracket(value, i) && value[i] == '%')
+			if (!is_in_bracket(value, i) && (value[i] == '*'
+			|| value[i] == '/'))
 				split_index = i;
 			i++;
 		}
