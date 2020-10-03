@@ -54,6 +54,7 @@ SRCS = 	$(LIB)computorv1/computor_v1.c \
 		$(LIB)print.c \
 		$(LIB)reduce_equ.c \
 		$(LIB)reduce_equ_2.c \
+		$(LIB)reduce_equ_3.c \
 		$(LIB)resolution.c \
 		$(LIB)resolve.c \
 		$(LIB)resolve_2.c \
