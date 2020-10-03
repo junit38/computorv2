@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/03 15:54:16 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/03 15:56:12 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ double			get_val_noimg(t_param *par, int pow)
 
 static int		get_b_img(t_param *param)
 {
-	printf("1: %f and %f\n", get_val_noimg(param, 1), get_val_img(param, 1));
-	printf("0: %f and %f\n", get_val_noimg(param, 0), get_val_img(param, 0));
 	if (is_img_squared(param))
 		return (get_val_img(param, 0) - get_val_noimg(param, 0));
 	else if (is_img_squared_bracket(param))
