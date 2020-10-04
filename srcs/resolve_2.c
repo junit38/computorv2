@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 14:52:02 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/04 13:23:16 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int		is_img(t_param *param)
 	ret = 0;
 	if (param && ((param->left && param->left->isimg)
 		|| (param->right && param->right->isimg)))
+		return (1);
+	if (param && param->isimg)
 		return (1);
 	if (param && param->left)
 		ret = ret | is_img(param->left);
