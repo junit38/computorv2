@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/05 17:04:36 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/05 17:07:42 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,27 +51,6 @@ static void	print_and_resolve_2(char *clean)
 		}
 		free_split(split);
 	}
-}
-
-static int			check_line(char *line)
-{
-	int			i;
-
-	i = 0;
-	while (line[i])
-	{
-		if (line[i] == '=' && line[i + 1] && line[i + 1] == '=')
-			return (0);
-		if ((line[i] == '+' || line[i] == '-' || line[i] == '*'
-			|| line[i] == '/' || line[i] == '%') && line[i + 1]
-			&& (line[i + 1] == '+' || line[i + 1] == '*' || line[i + 1] == '/'
-			|| line[i + 1] == '%'))
-			return (0);
-		if (line[i] == '-' && line[i + 1] && line[i + 1] == '-')
-			return (0);
-		i++;
-	}
-	return (1);
 }
 
 void		print_and_resolve(char *line)

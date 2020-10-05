@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/05 14:49:05 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/05 17:08:02 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int			get_bracket_index(char *value);
 ** CHECK
 */
 int			check_var(char *name, char *exp);
+int			check_line(char *line);
 
 /*
 ** CLEAN
