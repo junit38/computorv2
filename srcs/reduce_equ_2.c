@@ -6,20 +6,20 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/03 15:54:36 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/05 12:03:10 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor_v2.h"
 
-static double		get_val_img_2(t_param *par)
+static double	get_val_img_2(t_param *par)
 {
 	if (par->isimg && (par->power % 2) == 0)
 		return (0);
 	return (recursive_power(atof(par->value), par->power));
 }
 
-double		get_val_img(t_param *par, int pow)
+double			get_val_img(t_param *par, int pow)
 {
 	double		value;
 
@@ -43,7 +43,7 @@ double		get_val_img(t_param *par, int pow)
 	return (recursive_power(value, par->power));
 }
 
-int			is_img_squared(t_param *param)
+int				is_img_squared(t_param *param)
 {
 	int		ret;
 
@@ -57,13 +57,13 @@ int			is_img_squared(t_param *param)
 	return (ret);
 }
 
-int			is_img_squared_bracket(t_param *param)
+int				is_img_squared_bracket(t_param *param)
 {
 	int		ret;
 
 	ret = 0;
-	if (param && param->left && param->right && param->right->isimg && !param->left->isimg
-		&& param->power >= 2)
+	if (param && param->left && param->right && param->right->isimg
+		&& !param->left->isimg && param->power >= 2)
 		ret = 1;
 	if (param && param->left)
 		ret = ret | is_img_squared(param->left);
@@ -72,7 +72,7 @@ int			is_img_squared_bracket(t_param *param)
 	return (ret);
 }
 
-int			get_val_img_bracket(t_param *param)
+int				get_val_img_bracket(t_param *param)
 {
 	int		ret;
 
