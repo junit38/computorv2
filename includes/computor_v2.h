@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/03 15:55:10 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/05 14:49:05 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "get_next_line.h"
 # include <stdio.h>
 # include <math.h>
+# include <signal.h>
 
 t_data *g_data;
 
