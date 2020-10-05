@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 17:48:43 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/05 14:47:51 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 static void	replace_equ_var(char *value)
 {
 	int		i;
-	int		j;
 
 	i = 0;
-	j = 0;
 	while (value[i])
 	{
 		if (!ft_isdigit(value[i]) && value[i] != '+' && value[i] != '-'
