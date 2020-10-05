@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/22 15:49:40 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/05 14:38:39 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@ static void	ft_reduce_equ(t_equ *equ)
 {
 	int		i;
 	int		j;
-	int		finded;
 
 	i = 0;
 	while (equ->right->terms[i])
 	{
 		j = 0;
-		finded = 0;
 		while (equ->left->terms[j])
 		{
 			if (equ->left->terms[j]->power == equ->right->terms[i]->power)
@@ -30,7 +28,6 @@ static void	ft_reduce_equ(t_equ *equ)
 				equ->left->terms[j]->coef = equ->left->terms[j]->coef
 					- equ->right->terms[i]->coef;
 				equ->right->terms[i]->coef = 0;
-				finded = 1;
 			}
 			j++;
 		}
