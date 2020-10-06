@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/06 12:52:47 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/06 15:04:09 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static double	get_val_img_2(t_param *par)
 {
-	if (par->isimg && (par->power % 2) == 1)
+	if (par->isimg && (par->power % 2) == 1 && par->power > 1)
 		return (-1);
 	if (par->isimg && (par->power % 4) == 1)
 		return (1);
