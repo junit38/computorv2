@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/06 12:01:39 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/06 12:05:41 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int		is_img_squared_bracket(t_param *param)
 	int		ret;
 
 	ret = 0;
-	// printf("param->right->isimg: %d\n", param->right->isimg);
-	// printf("param->right->value: %s\n", param->right->value);
 	if (param && param->left && param->right && param->right->isimg
 		&& !param->left->isimg && param->power >= 2)
 		ret = 1;
