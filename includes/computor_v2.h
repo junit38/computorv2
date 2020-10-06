@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/05 17:33:37 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/06 12:36:32 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,7 +180,7 @@ t_param		*reduce_equ(t_param *param, int freeparam);
 */
 double		get_val_img(t_param *par, int pow);
 double		get_val_noimg(t_param *par, int pow);
-int			is_img_squared(t_param *param);
+void		set_img_squared_rec(t_param *param, int power);
 
 /*
 ** REDUCE_EQU_3
@@ -188,6 +188,8 @@ int			is_img_squared(t_param *param);
 int			get_val_noimg_bracket(t_param *param);
 int			is_img_squared_bracket(t_param *param);
 int			get_val_img_bracket(t_param *param);
+int			is_img_squared(t_param *param);
+
 /*
 ** RESOLUTION
 */

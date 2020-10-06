@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/05 17:33:01 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/06 12:50:52 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 static double	get_val_img_2(t_param *par)
 {
+	if (par->isimg && (par->power % 2) == 1)
+		return (-1);
+	if (par->isimg && (par->power % 4) == 1)
+		return (1);
 	if (par->isimg && (par->power % 2) == 0)
 		return (0);
 	return (recursive_power(atof(par->value), par->power));
@@ -45,10 +49,6 @@ double			get_val_img(t_param *par, int pow)
 
 static double	get_val_noimg_2(t_param *par, int pow)
 {
-	if (par->isimg && par->power > 1 && (par->power % 4) == 1 && pow == 1)
-		return (1);
-	if (par->isimg && par->power > 1 && (par->power % 2) == 1 && pow == 1)
-		return (-1);
 	if (par->isimg && (par->power % 4) == 0 && pow == 1)
 		return (1);
 	if (par->isimg && (par->power % 2) == 0 && pow == 1)
@@ -82,16 +82,12 @@ double			get_val_noimg(t_param *par, int pow)
 	return (recursive_power(value, par->power));
 }
 
-int				is_img_squared(t_param *param)
+void	set_img_squared_rec(t_param *param, int power)
 {
-	int		ret;
-
-	ret = 0;
-	if (param && param->isimg && param->power >= 2)
-		ret = 1;
+	if (param->value)
+		param->power = param->power * power;
 	if (param && param->left)
-		ret = ret | is_img_squared(param->left);
+		set_img_squared_rec(param->left, power);
 	if (param && param->right)
-		ret = ret | is_img_squared(param->right);
-	return (ret);
+		set_img_squared_rec(param->right, power);
 }
