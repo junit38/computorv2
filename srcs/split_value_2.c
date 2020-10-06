@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 14:31:29 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/06 15:20:46 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	set_param_img(t_param *param)
 {
-	if (ft_strcmp(param->value, "i") == 0)
+	if (ft_strcmp(clean_line(param->value), "i") == 0)
 	{
 		param->isimg = 1;
 		free(param->value);

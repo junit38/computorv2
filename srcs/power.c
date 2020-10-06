@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 13:19:45 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/06 15:36:00 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,16 @@ int		get_power(char *value)
 {
 	char	**split;
 	int		power;
+	int		i;
 
 	split = ft_strsplit(value, '^');
 	power = 1;
 	if (split)
 	{
-		power = ft_atoi(split[1]);
+		i = 0;
+		while (split[i])
+			i++;
+		power = ft_atoi(split[i - 1]);
 		free_split(split);
 	}
 	return (power);
@@ -56,9 +60,9 @@ void	clean_power(char *value)
 {
 	int		i;
 
-	i = 0;
+	i = ft_strlen(value);
 	while (value[i] && value[i] != '^')
-		i++;
+		i--;
 	if (value[i] == '^')
 	{
 		value[i] = ' ';

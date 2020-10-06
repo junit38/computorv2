@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/01 14:05:07 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/06 15:33:29 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void		split_brace(t_param *param, char *value)
 	if (is_bracket_power(value) && index == 0
 		&& get_power_index_last(value) - 1 == index_end)
 	{
+		// printf("value: %s\n power: %d", value, get_power(value));
 		param->power = get_power(value);
 		clean_power(value);
 		set_bra_and_split(param, value, index, index_end);
