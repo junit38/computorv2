@@ -6,18 +6,33 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/05 17:38:24 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/06 12:04:30 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor_v2.h"
 
+static void	set_img_squared(t_param *param)
+{
+	if (param && param->left && param->right && param->right->isimg
+		&& !param->left->isimg && param->power >= 2)
+	{
+		param->left->power = param->left->power * param->power;
+		param->right->power = param->right->power * param->power;
+		param->power = 1;
+	}
+	if (param && param->left)
+		set_img_squared(param->left);
+	if (param && param->right)
+		set_img_squared(param->right);
+}
+
 static int	get_b_img(t_param *param)
 {
+	if (is_img_squared_bracket(param))
+		set_img_squared(param);
 	if (is_img_squared(param))
 		return (get_val_img(param, 0) - get_val_noimg(param, 0));
-	else if (is_img_squared_bracket(param))
-		return (get_val_img_bracket(param));
 	return (get_val_img(param, 1) - get_val_noimg(param, 1));
 }
 
@@ -26,14 +41,10 @@ static int	get_a_img(t_param *param)
 	int		img;
 
 	img = 0;
+	if (is_img_squared_bracket(param))
+		set_img_squared(param);
 	if (is_img_squared(param))
 		return (get_val_noimg(param, 1));
-	else if (is_img_squared_bracket(param))
-	{
-		img = get_val_img(param, 1) - get_val_noimg(param, 1);
-		img = img * get_val_noimg_bracket(param);
-		return (get_val_noimg(param, 1) - img);
-	}
 	return (get_val_noimg(param, 1));
 }
 
