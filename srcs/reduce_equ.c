@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/06 12:46:27 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/06 12:51:54 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ static void	set_img_squared(t_param *param, int power)
 
 static int	get_b_img(t_param *param)
 {
-	// printf("%f and %f\n", get_val_img(param, 0), get_val_noimg(param, 0));
-	// printf("%f and %f\n", get_val_img(param, 0), get_val_noimg(param, 0));
+	printf("%f and %f\n", get_val_img(param, 0), get_val_noimg(param, 0));
+	printf("%f and %f\n", get_val_img(param, 1), get_val_noimg(param, 1));
 	if (is_img_squared(param))
 		return (get_val_img(param, 0) - get_val_noimg(param, 0));
 	return (get_val_img(param, 1) - get_val_noimg(param, 1));

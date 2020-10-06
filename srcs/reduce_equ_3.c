@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/06 12:35:42 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/06 12:52:09 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		get_val_noimg_bracket(t_param *param)
 	return (ret);
 }
 
-int				is_img_squared(t_param *param)
+int		is_img_squared(t_param *param)
 {
 	int		ret;
 
