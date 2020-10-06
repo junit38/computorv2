@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/06 12:50:52 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/06 12:52:47 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ double			get_val_noimg(t_param *par, int pow)
 	return (recursive_power(value, par->power));
 }
 
-void	set_img_squared_rec(t_param *param, int power)
+void			set_img_squared_rec(t_param *param, int power)
 {
 	if (param->value)
 		param->power = param->power * power;
