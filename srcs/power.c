@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/06 15:36:00 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/09 13:24:12 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	clean_power(char *value)
 {
 	int		i;
 
-	i = ft_strlen(value);
+	i = ft_strlen(value) - 1;
 	while (value[i] && value[i] != '^')
 		i--;
 	if (value[i] == '^')
