@@ -6,13 +6,13 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/09 12:45:35 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/09 12:47:00 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor_v2.h"
 
-static void	resolve_mat(t_param *param)
+static void		resolve_mat(t_param *param)
 {
 	while (can_be_reduced_mat(param))
 		reduce_mat(param);
@@ -20,7 +20,7 @@ static void	resolve_mat(t_param *param)
 	printf("\n");
 }
 
-void		resolve_exp_2(t_var *var)
+void			resolve_exp_2(t_var *var)
 {
 	t_param		*param;
 
@@ -45,7 +45,7 @@ void		resolve_exp_2(t_var *var)
 		resolve_name(var->value);
 }
 
-void		resolve_exp(t_var *var)
+void			resolve_exp(t_var *var)
 {
 	if (var->param == NULL)
 		var->param = split_value(clean_line(var->value));
@@ -58,7 +58,7 @@ void		resolve_exp(t_var *var)
 		resolve_exp_2(var);
 }
 
-t_param 	*resolve_name_param(t_param *param)
+static t_param 	*resolve_name_param(t_param *param)
 {
 	int		i;
 
@@ -78,7 +78,7 @@ t_param 	*resolve_name_param(t_param *param)
 	return (param);
 }
 
-void		resolve_name(char *name)
+void			resolve_name(char *name)
 {
 	t_param		*param;
 
