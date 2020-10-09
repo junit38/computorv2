@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/09 13:29:06 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/09 14:08:04 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,26 @@ static void		resolve_mat(t_param *param)
 	printf("\n");
 }
 
+static t_param 	*resolve_name_param(t_param *param)
+{
+	int		i;
+
+	i = 0;
+	param = resolve_param(param, NULL, NULL);
+	while (can_be_resolved(param) && i < 100)
+	{
+		i++;
+		param = resolve_param(param, NULL, NULL);
+	}
+	if (i == 100)
+	{
+		ft_putstr("computorv2: Maximum resolution reached\n");
+		free_param(param);
+		return (NULL);
+	}
+	return (param);
+}
+
 void			resolve_exp_2(t_var *var)
 {
 	t_param		*param;
@@ -29,10 +49,11 @@ void			resolve_exp_2(t_var *var)
 	else if (ft_strcmp(var->type, "FUNC") == 0)
 	{
 		param = resolve_param(var->param, NULL, NULL);
-		while (can_be_reduced(param))
+		while (param && can_be_reduced(param))
 			reduce(param);
 		print_func(param);
-		printf("\n");
+		if (param)
+			printf("\n");
 	}
 	else if (ft_strcmp(var->type, "IMG") == 0)
 	{
@@ -58,41 +79,21 @@ void			resolve_exp(t_var *var)
 		resolve_exp_2(var);
 }
 
-static t_param 	*resolve_name_param(t_param *param)
-{
-	int		i;
-
-	i = 0;
-	param = resolve_param(param, NULL, NULL);
-	while (can_be_resolved(param) && i < 100)
-	{
-		i++;
-		param = resolve_param(param, NULL, NULL);
-	}
-	if (i == 100)
-	{
-		ft_putstr("computorv2: Maximum resolution reached\n");
-		free_param(param);
-		return (NULL);
-	}
-	return (param);
-}
-
 void			resolve_name(char *name)
 {
 	t_param		*param;
 
 	param = split_value(clean_line(name));
 	param = resolve_name_param(param);
-	if (is_img(param))
+	if (param && is_img(param))
 	{
 		param = reduce_equ(param, 1);
 		print_param(param);
 		printf("\n");
 	}
-	else if (is_mat(param))
+	else if (param && is_mat(param))
 		resolve_mat(param);
-	else if (is_func_param(param))
+	else if (param && is_func_param(param))
 	{
 		free_param(param);
 		param = split_value(clean_line(name));

@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 14:25:16 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/09 14:10:17 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void			replace_var(t_var *var)
 		replaced = replace_var_2(var, curs);
 	while (curs && !replaced)
 	{
-		if (var && var->name && curs->name
+		if (var && var->name && curs && curs->name
 			&& ft_strcmp(var->name, curs->name) == 0 && (prec->next = var))
 			replaced = replace_var_2(var, curs);
 		else

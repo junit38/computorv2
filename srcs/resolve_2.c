@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/06 15:21:04 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/09 14:09:08 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,14 @@ t_param	*resolve_param_2(t_param *param, char *func_var, char *func_replace)
 t_param	*resolve_param(t_param *param, char *func_var, char *func_replace)
 {
 	t_param		*tmp_param;
+	static int	check;
 
 	tmp_param = param;
+	if (!check)
+		check = 0;
+	check++;
+	if (check > 100)
+		return (tmp_param);
 	if (param && param->value && func_replace
 		&& ft_strcmp(param->value, func_replace) == 0)
 	{

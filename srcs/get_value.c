@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 17:49:05 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/09 13:47:23 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,14 @@ double		find_value(char *value)
 double		get_value(t_param *param)
 {
 	double		value;
+	static int	check;
 
 	value = 0;
+	if (!check)
+		check = 0;
+	check++;
+	if (check > 100)
+		return (0);
 	if (param && param->sym == '+')
 		value = get_value(param->left) + get_value(param->right);
 	else if (param && param->sym == '-')
