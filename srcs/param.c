@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/09 14:09:32 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/09 14:41:50 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,24 +83,24 @@ int		check_param(t_param *param, t_var *var)
 
 void	print_param(t_param *param)
 {
-	if (param && param->left)
+	if (param->left)
 		print_param(param->left);
-	if (param && param->sym == '-' && !param->left)
+	if (param->sym == '-' && !param->left)
 		ft_putchar(param->sym);
-	else if (param && param->sym && param->sym != '*' && param->sym != -1)
+	else if (param->sym && param->sym != '*' && param->sym != -1)
 	{
 		ft_putchar(' ');
 		ft_putchar(param->sym);
 		ft_putchar(' ');
 	}
-	if (param && param->sym == -1)
+	if (param->sym == -1)
 		ft_putstr(" ** ");
-	if (param && param->right)
+	if (param->right)
 		print_param(param->right);
-	if (param && param->isimg)
+	if (param->isimg)
 		ft_putstr("i");
-	else if (param && param->value)
+	else if (param->value)
 		ft_putstr(param->value);
-	if (param && param->mat)
+	if (param->mat)
 		print_mat(param->mat, param->mat_len, 0);
 }

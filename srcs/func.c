@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/09 13:40:22 by mery             ###   ########.fr       */
+/*   Updated: 2020/09/29 17:02:15 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 void	print_func(t_param *param)
 {
-	if (param && param->bracket)
+	if (param->bracket)
 		ft_putstr("(");
-	if (param && param->left)
+	if (param->left)
 		print_func(param->left);
-	if (param && param->sym)
+	if (param->sym)
 	{
 		ft_putchar(' ');
 		ft_putchar(param->sym);
 		ft_putchar(' ');
 	}
-	if (param && param->right)
+	if (param->right)
 		print_func(param->right);
-	if (param && param->isimg)
+	if (param->isimg)
 		ft_putstr("i");
-	else if (param && param->value)
+	else if (param->value)
 		ft_putstr(param->value);
-	if (param && param->mat)
+	if (param->mat)
 		print_mat(param->mat, param->mat_len, 0);
-	if (param && param->bracket)
+	if (param->bracket)
 		ft_putstr(")");
-	if (param && param->power != 1)
+	if (param->power != 1)
 	{
 		ft_putchar('^');
 		ft_putnbr(param->power);

@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/09 14:09:41 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/09 15:18:48 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,29 @@ int		already_exist(t_var *var)
 		curs = curs->next;
 	}
 	return (exist);
+}
+
+void	free_finded_var(t_var *var)
+{
+	t_var		*curs;
+	t_var		*prec;
+
+	curs = g_data->vars;
+	prec = g_data->vars;
+	if (var && curs && ft_strcmp(var->name, curs->name) == 0)
+	{
+		g_data->vars = curs->next;
+		free_var(curs);
+		return ;
+	}
+	while (curs)
+	{
+		if (ft_strcmp(var->name, curs->name) == 0)
+		{
+			prec->next = curs->next;
+			free_var(curs);
+		}
+		if (curs)
+			curs = curs->next;
+	}
 }

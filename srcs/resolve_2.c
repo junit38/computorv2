@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/09 14:09:08 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/09 15:27:30 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,28 +46,23 @@ int		is_img(t_param *param)
 	return (ret);
 }
 
-int		is_func_param(t_param *param)
+static void	*exit_resolve_param_2(t_param *param)
 {
-	int		ret;
-
-	ret = 0;
-	if (param && param->isfunc)
-		return (1);
-	if (param && param->left)
-		ret = ret | is_func_param(param->left);
-	if (param && param->right)
-		ret = ret | is_func_param(param->right);
-	return (ret);
+	free_param(param);
+	ft_putstr("computor_v2: Error bad assign\n");
+	return (NULL);
 }
 
-t_param	*resolve_param_2(t_param *param, char *func_var, char *func_replace)
+t_param		*resolve_param_2(t_param *param, char *func_var, char *func_replace)
 {
 	t_param		*tmp_param;
 	t_var		*tmp_var;
 
 	tmp_param = param;
 	tmp_var = find_var(param->value);
-	if (tmp_var)
+	if (!tmp_var && !func_var)
+		return (exit_resolve_param_2(param));
+	if (tmp_var && tmp_var->param)
 	{
 		tmp_param = ft_strdup_param(tmp_var->param);
 		if (tmp_param && ft_strcmp(tmp_var->type, "FUNC") == 0)
@@ -89,14 +84,8 @@ t_param	*resolve_param_2(t_param *param, char *func_var, char *func_replace)
 t_param	*resolve_param(t_param *param, char *func_var, char *func_replace)
 {
 	t_param		*tmp_param;
-	static int	check;
 
 	tmp_param = param;
-	if (!check)
-		check = 0;
-	check++;
-	if (check > 100)
-		return (tmp_param);
 	if (param && param->value && func_replace
 		&& ft_strcmp(param->value, func_replace) == 0)
 	{
@@ -106,9 +95,9 @@ t_param	*resolve_param(t_param *param, char *func_var, char *func_replace)
 	else if (param && param->value && !is_digit(param->value)
 		&& param->value[0] != '-')
 		tmp_param = resolve_param_2(param, func_var, func_replace);
-	if (param && param->left != NULL)
+	if (tmp_param == param && param && param->left != NULL)
 		param->left = resolve_param(param->left, func_var, func_replace);
-	if (param && param->right != NULL)
+	if (tmp_param == param && param && param->right != NULL)
 		param->right = resolve_param(param->right, func_var, func_replace);
 	return (tmp_param);
 }
