@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/06 15:37:05 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/09 12:45:35 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,32 @@ void		resolve_exp(t_var *var)
 		resolve_exp_2(var);
 }
 
+t_param 	*resolve_name_param(t_param *param)
+{
+	int		i;
+
+	i = 0;
+	param = resolve_param(param, NULL, NULL);
+	while (can_be_resolved(param) && i < 100)
+	{
+		i++;
+		param = resolve_param(param, NULL, NULL);
+	}
+	if (i == 100)
+	{
+		ft_putstr("computorv2: Maximum check reached\n");
+		free_param(param);
+		return (NULL);
+	}
+	return (param);
+}
+
 void		resolve_name(char *name)
 {
 	t_param		*param;
 
 	param = split_value(clean_line(name));
-	param = resolve_param(param, NULL, NULL);
-	while (can_be_resolved(param))
-		param = resolve_param(param, NULL, NULL);
+	param = resolve_name_param(param);
 	if (is_img(param))
 	{
 		param = reduce_equ(param, 1);
