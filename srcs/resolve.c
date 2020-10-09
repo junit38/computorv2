@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/09 13:25:07 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/09 13:29:06 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static t_param 	*resolve_name_param(t_param *param)
 	}
 	if (i == 100)
 	{
-		ft_putstr("computorv2: Maximum check reached\n");
+		ft_putstr("computorv2: Maximum resolution reached\n");
 		free_param(param);
 		return (NULL);
 	}
