@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/09 15:28:14 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/10 16:00:35 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,14 +200,13 @@ void		print_resolution(double f, int newline);
 */
 void		resolve_exp_2(t_var *var);
 void		resolve_exp(t_var *var);
-int			resolve_name(char *name);
+int			resolve_name(char *name, int is_resolution);
 
 /*
 ** RESOLVE_2
 */
-int			is_mat(t_param *param);
-int			is_img(t_param *param);
 t_param		*resolve_param(t_param *param, char *func_var, char *func_replace);
+int			resolve_func(t_param *param, char *name, int is_resolution);
 
 /*
 ** RESOLVE_3
@@ -220,9 +219,10 @@ int			can_be_reduced(t_param *param);
 /*
 ** RESOLVE_4
 */
-int			can_be_resolved(t_param *param);
 int			is_func_param(t_param *param);
-
+int			is_mat(t_param *param);
+int			is_img(t_param *param);
+int			can_be_resolved(t_param *param);
 
 /*
 ** RESOLVE_EQU

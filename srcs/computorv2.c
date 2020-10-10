@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/09 14:50:30 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/10 15:54:09 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void		assign_var(char *name, char *exp)
 		resolve_exp(current_var);
 	}
 	else if (ft_strcmp(clean_line(exp), "?") == 0)
-		resolve_name(name);
+		resolve_name(name, 1);
 	else
 		resolve_equ(clean_line(name), exp);
 }

@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/09 14:51:33 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/10 15:26:17 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ void	print_var(void)
 		if (var->name && var->value)
 		{
 			ft_putstr(var->name);
+			if (ft_strcmp(var->type, "FUNC") == 0)
+			{
+				ft_putstr("(");
+				ft_putstr(var->func_var);
+				ft_putstr(")");
+			}
 			ft_putstr(" =");
 			ft_putstr(var->value);
 			ft_putchar('\n');

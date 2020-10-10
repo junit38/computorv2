@@ -6,13 +6,13 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/09 15:18:31 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/10 16:00:16 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor_v2.h"
 
-static void	resolve_mat(t_param *param)
+static void		resolve_mat(t_param *param)
 {
 	while (can_be_reduced_mat(param))
 		reduce_mat(param);
@@ -20,7 +20,7 @@ static void	resolve_mat(t_param *param)
 	printf("\n");
 }
 
-void		resolve_exp_2(t_var *var)
+void			resolve_exp_2(t_var *var)
 {
 	t_param		*param;
 
@@ -43,12 +43,12 @@ void		resolve_exp_2(t_var *var)
 	}
 	else if (var && var->param)
 	{
-		if (resolve_name(var->value) == -1)
+		if (resolve_name(var->value, 0) == -1)
 			free_finded_var(var);
 	}
 }
 
-void		resolve_exp(t_var *var)
+void			resolve_exp(t_var *var)
 {
 	if (var->param == NULL)
 		var->param = split_value(clean_line(var->value));
@@ -81,14 +81,16 @@ static t_param 	*resolve_name_param(t_param *param)
 	return (param);
 }
 
-int			resolve_name(char *name)
+int				resolve_name(char *name, int is_resolution)
 {
 	t_param		*param;
+	int			ret;
 
+	ret = 1;
 	param = split_value(clean_line(name));
 	param = resolve_name_param(param);
 	if (param == NULL)
-		return (-1);
+		ret = -1;
 	if (is_img(param))
 	{
 		param = reduce_equ(param, 1);
@@ -98,14 +100,10 @@ int			resolve_name(char *name)
 	else if (is_mat(param))
 		resolve_mat(param);
 	else if (is_func_param(param))
-	{
-		free_param(param);
-		param = split_value(clean_line(name));
-		print_resolution(get_value(param), 1);
-	}
+		ret = resolve_func(param, name, is_resolution);
 	else if (param)
 		print_resolution(get_value(param), 1);
 	if (param)
 		free_param(param);
-	return (1);
+	return (ret);
 }

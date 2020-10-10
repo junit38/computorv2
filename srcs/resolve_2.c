@@ -6,49 +6,52 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/09 15:27:30 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/10 16:00:06 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor_v2.h"
 
-int		is_mat(t_param *param)
+static int	resolve_func_2(t_param *param, int is_resolution)
 {
-	int		ret;
-
-	ret = 0;
-	if (param && param->mat)
-		return (1);
-	if (param && ((param->left && param->left->mat)
-		|| (param->right && param->right->mat)))
-		return (1);
-	if (param && param->left)
-		ret = ret | is_mat(param->left);
-	if (param && param->right)
-		ret = ret | is_mat(param->right);
-	return (ret);
+	if (is_resolution)
+	{
+		print_func(param);
+		printf("\n");
+	}
+	else
+	{
+		ft_putstr("computor_v2: Error bad assign\n");
+		return (-1);
+	}
+	return (1);
 }
 
-int		is_img(t_param *param)
+int			resolve_func(t_param *param, char *name, int is_resolution)
 {
+	char 	*func_var;
+	char 	*func_replace;
+	t_param	*param_2;
 	int		ret;
 
-	ret = 0;
-	if (param && ((param->left && param->left->isimg)
-		|| (param->right && param->right->isimg)))
-		return (1);
-	if (param && param->isimg)
-		return (1);
-	if (param && param->left)
-		ret = ret | is_img(param->left);
-	if (param && param->right)
-		ret = ret | is_img(param->right);
+	ret = 1;
+	param_2 = split_value(clean_line(name));
+	func_var = get_func_var(clean_line(name));
+	func_replace = get_func_replace(clean_line(name));
+	if (func_var && func_replace && ft_strcmp(func_var, func_replace) == 0)
+		ret = resolve_func_2(param, is_resolution);
+	else
+		print_resolution(get_value(param_2), 1);
+	if (func_var)
+		free(func_var);
+	free_param(param_2);
 	return (ret);
 }
 
 static void	*exit_resolve_param_2(t_param *param)
 {
-	free_param(param);
+	if (param)
+		free_param(param);
 	ft_putstr("computor_v2: Error bad assign\n");
 	return (NULL);
 }
@@ -70,11 +73,12 @@ t_param		*resolve_param_2(t_param *param, char *func_var, char *func_replace)
 			tmp_param->isfunc = 1;
 			func_var = get_func_var(clean_line(param->value));
 			func_replace = get_func_replace(clean_line(param->value));
-			tmp_param = resolve_param(tmp_param, func_var, func_replace);
+			if (func_var && func_replace)
+				tmp_param = resolve_param(tmp_param, func_var, func_replace);
 			if (func_var)
 				free(func_var);
 		}
-		if (param->power)
+		if (tmp_param && param && param->power)
 			tmp_param->power = param->power * tmp_param->power;
 		free_param(param);
 	}
@@ -86,6 +90,9 @@ t_param	*resolve_param(t_param *param, char *func_var, char *func_replace)
 	t_param		*tmp_param;
 
 	tmp_param = param;
+	if (func_var && func_replace && !is_digit(func_var) && !find_var(func_var)
+		&& ft_strcmp(func_var, func_replace) != 0)
+		return (exit_resolve_param_2(param));
 	if (param && param->value && func_replace
 		&& ft_strcmp(param->value, func_replace) == 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/09 15:27:38 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/10 15:42:04 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,40 @@ int		is_func_param(t_param *param)
 		ret = ret | is_func_param(param->left);
 	if (param && param->right)
 		ret = ret | is_func_param(param->right);
+	return (ret);
+}
+
+int		is_mat(t_param *param)
+{
+	int		ret;
+
+	ret = 0;
+	if (param && param->mat)
+		return (1);
+	if (param && ((param->left && param->left->mat)
+		|| (param->right && param->right->mat)))
+		return (1);
+	if (param && param->left)
+		ret = ret | is_mat(param->left);
+	if (param && param->right)
+		ret = ret | is_mat(param->right);
+	return (ret);
+}
+
+int		is_img(t_param *param)
+{
+	int		ret;
+
+	ret = 0;
+	if (param && ((param->left && param->left->isimg)
+		|| (param->right && param->right->isimg)))
+		return (1);
+	if (param && param->isimg)
+		return (1);
+	if (param && param->left)
+		ret = ret | is_img(param->left);
+	if (param && param->right)
+		ret = ret | is_img(param->right);
 	return (ret);
 }
 
