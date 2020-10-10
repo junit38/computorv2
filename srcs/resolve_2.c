@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/10 16:11:28 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/10 16:17:06 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int			resolve_func(t_param *param, char *name, int is_resolution)
 	param_2 = split_value(clean_line(name));
 	func_var = get_func_var(clean_line(name));
 	func_replace = get_func_replace(clean_line(name));
-	if (func_var && func_replace && ft_strcmp(func_var, func_replace) == 0)
+	if (func_var && func_replace && ft_strcmp(func_var, func_replace) == 0
+		&& !find_var(func_replace))
 		ret = resolve_func_2(param, is_resolution);
 	else
 		print_resolution(get_value(param_2), 1);
