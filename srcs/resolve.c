@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/10 16:00:16 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/10 16:11:40 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void			resolve_exp(t_var *var)
 		resolve_exp_2(var);
 }
 
-static t_param 	*resolve_name_param(t_param *param)
+static t_param	*resolve_name_param(t_param *param)
 {
 	int		i;
 

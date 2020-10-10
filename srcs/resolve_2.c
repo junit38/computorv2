@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/10 16:00:06 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/10 16:11:28 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static int	resolve_func_2(t_param *param, int is_resolution)
 
 int			resolve_func(t_param *param, char *name, int is_resolution)
 {
-	char 	*func_var;
-	char 	*func_replace;
+	char	*func_var;
+	char	*func_replace;
 	t_param	*param_2;
 	int		ret;
 
@@ -85,7 +85,7 @@ t_param		*resolve_param_2(t_param *param, char *func_var, char *func_replace)
 	return (tmp_param);
 }
 
-t_param	*resolve_param(t_param *param, char *func_var, char *func_replace)
+t_param		*resolve_param(t_param *param, char *func_var, char *func_replace)
 {
 	t_param		*tmp_param;
 
