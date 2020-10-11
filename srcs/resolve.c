@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/10 16:11:40 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/11 13:56:23 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,14 @@ void			resolve_exp_2(t_var *var)
 		resolve_mat(var->param);
 	else if (var && ft_strcmp(var->type, "FUNC") == 0)
 	{
-		param = resolve_param(var->param, var->func_var, NULL);
+		param = ft_strdup_param(var->param);
+		param = resolve_param(param, var->func_var, NULL);
 		while (param && can_be_reduced(param))
 			reduce(param);
 		print_func(param);
 		printf("\n");
+		if (param)
+			free_param(param);
 	}
 	else if (var && ft_strcmp(var->type, "IMG") == 0)
 	{
@@ -41,11 +44,8 @@ void			resolve_exp_2(t_var *var)
 		printf("\n");
 		free_param(param);
 	}
-	else if (var && var->param)
-	{
-		if (resolve_name(var->value, 0) == -1)
-			free_finded_var(var);
-	}
+	else if (var && var->param && resolve_name(var->value, 0) == -1)
+		free_finded_var(var);
 }
 
 void			resolve_exp(t_var *var)

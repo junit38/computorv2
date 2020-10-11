@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 14:25:16 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/11 13:56:49 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static t_var	*find_func(char *name)
 	split = ft_strsplit(name, '(');
 	finded = NULL;
 	curs = g_data->vars;
-	if (split)
+	if (split && split[0])
 	{
 		while (curs && !finded)
 		{
@@ -41,7 +41,7 @@ t_var			*find_var(char *name)
 
 	curs = g_data->vars;
 	finded = NULL;
-	while (curs && !finded)
+	while (curs && !finded && name)
 	{
 		if (ft_strcmp(clean_line(to_lower_case(name)), curs->name) == 0)
 			finded = curs;
