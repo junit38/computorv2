@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/13 11:24:56 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/13 11:31:35 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,7 @@ void	print_param(t_param *param)
 	if (param->sym == '-' && !param->left)
 		printf("%c", param->sym);
 	else if (param->sym && param->sym != '*' && param->sym != -1)
-	{
-		printf(" ");
-		printf("%c", param->sym);
-		printf(" ");
-	}
+		printf(" %c ", param->sym);
 	if (param->sym == -1)
 		printf(" ** ");
 	if (param->right)
