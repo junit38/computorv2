@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/10 15:54:09 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/13 12:16:30 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,14 @@ void		assign_var(char *name, char *exp)
 	if (ft_strchr(exp, '?') == 0)
 	{
 		current_var = init_var(clean_line(name), exp);
-		if (already_exist(current_var))
+		if (current_var && current_var->func_var
+			&& is_digit(current_var->func_var))
+		{
+			printf("computorv2: Error bad assign\n");
+			free_var(current_var);
+			return ;
+		}
+		else if (already_exist(current_var))
 			replace_var(current_var);
 		else
 			save_var(current_var);
