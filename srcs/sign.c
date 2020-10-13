@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/28 14:22:38 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/13 11:58:20 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static int	is_sign(char *value, int index)
 		return (0);
 	while (value[i] && value[i] == ' ')
 		i--;
-	if (value[i] == ',' || value[i] == '[' || value[i] == '*'
-		|| value[i] == '/' || value[i] == '%')
+	if (!value[i] || value[i] == ',' || value[i] == '[' || value[i] == '*'
+		|| value[i] == '/' || value[i] == '%' || value[i] == '(')
 		return (0);
 	return (1);
 }

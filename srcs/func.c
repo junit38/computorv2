@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/13 11:31:25 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/13 11:52:07 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,7 @@ void	print_func(t_param *param)
 	if (param->bracket)
 		printf(")");
 	if (param->power != 1)
-	{
-		ft_putchar('^');
-		ft_putnbr(param->power);
-	}
+		printf("^%d", param->power);
 }
 
 int		is_func(char *name)
