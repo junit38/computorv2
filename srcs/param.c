@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/09 14:41:50 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/13 11:24:56 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,21 +86,21 @@ void	print_param(t_param *param)
 	if (param->left)
 		print_param(param->left);
 	if (param->sym == '-' && !param->left)
-		ft_putchar(param->sym);
+		printf("%c", param->sym);
 	else if (param->sym && param->sym != '*' && param->sym != -1)
 	{
-		ft_putchar(' ');
-		ft_putchar(param->sym);
-		ft_putchar(' ');
+		printf(" ");
+		printf("%c", param->sym);
+		printf(" ");
 	}
 	if (param->sym == -1)
-		ft_putstr(" ** ");
+		printf(" ** ");
 	if (param->right)
 		print_param(param->right);
 	if (param->isimg)
-		ft_putstr("i");
+		printf("i");
 	else if (param->value)
-		ft_putstr(param->value);
+		printf("%s", param->value);
 	if (param->mat)
 		print_mat(param->mat, param->mat_len, 0);
 }

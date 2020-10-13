@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/09/29 14:41:45 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/13 11:18:02 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ void		reduce(t_param *param)
 
 	if (param->left && param->right && param->left->value
 		&& param->right->value && is_digit(param->left->value)
-		&& is_digit(param->right->value))
+		&& is_digit(param->right->value) && !param->left->isimg
+		&& !param->right->isimg)
 	{
 		value = ft_ftoa(get_value(param));
 		clean_param(param);
@@ -104,7 +105,8 @@ int			can_be_reduced(t_param *param)
 	ret = 0;
 	if (param->left && param->right && param->left->value
 		&& param->right->value && is_digit(param->left->value)
-		&& is_digit(param->right->value))
+		&& is_digit(param->right->value) && !param->left->isimg
+		&& !param->right->isimg)
 		return (1);
 	if (param->value && find_var(param->value) != NULL)
 		return (1);
