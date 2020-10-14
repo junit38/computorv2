@@ -1,31 +1,16 @@
- varA = 2 + 4 *2 - 5 %4 + 2 * (4 + 5)
-27
-varB = 2 * varA - 5 %4
-53
-funA(x) = varA + varB * 4 - 1 / 2 + x
-27 + 211.5 + x
-varC = 2 * varA - varB
-1
-varD = funA(varC)
-239.5
-funA(x) = 2 * 4 + x
-8 + x
-funB(x) = 4 -5 + (x + 2)^2 - 4
--1 +  ( x + 2)^2 - 4
- funC(x) = 4x + 5 - 2
-4 * x + 3
- funA(2) + funB(4) = ?
-
-------------
-x = [[4,2]]
-y
-y = ?
-
-------------
-y = [[8,4]]
-f(z) = z * y
-e = f(2)
-e = ?
+x = --2
+computorv2: Error while parsing
+f(x) = x * 2
+x * 2
+t = f(x)
+computor_v2: Error bad assign
+x = 2
+2
+t = f(x)
+4
+t = ?
+4
+^C%
 
 // static int	is_in_bracket(char *value, int i)
 // {

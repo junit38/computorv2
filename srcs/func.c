@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/13 11:52:07 by mery             ###   ########.fr       */
+/*   Updated: 2020/10/14 12:19:37 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,17 @@ char	*get_func_var(char *var)
 
 	split = ft_strsplit(var, '(');
 	func_var = NULL;
-	if (split && split[1])
+	if (split)
 	{
-		split2 = ft_strsplit(split[1], ')');
-		if (split2 && split2[0])
+		if (split[1])
 		{
-			func_var = ft_strdup(split2[0]);
-			free_split(split2);
+			split2 = ft_strsplit(split[1], ')');
+			if (split2)
+			{
+				if (split2[0])
+					func_var = ft_strdup(split2[0]);
+				free_split(split2);
+			}
 		}
 		free_split(split);
 	}
@@ -97,11 +101,14 @@ char	*get_func_replace(char *var)
 
 	split = ft_strsplit(var, '(');
 	func_replace = NULL;
-	if (split && split[0])
+	if (split)
 	{
-		finded = find_var(split[0]);
-		if (finded)
-			func_replace = finded->func_var;
+		if (split[0])
+		{
+			finded = find_var(split[0]);
+			if (finded)
+				func_replace = finded->func_var;
+		}
 		free_split(split);
 	}
 	return (func_replace);
