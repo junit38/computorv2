@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/14 12:21:02 by mery             ###   ########.fr       */
+/*   Updated: 2020/11/06 15:16:54 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static t_param	*resolve_name_param(t_param *param)
 		i++;
 		param = resolve_param(param, NULL, NULL);
 	}
-	if (i == 100)
+	if (i == 100 && param)
 	{
 		ft_putstr("computorv2: Maximum resolution reached\n");
 		free_param(param);
@@ -89,17 +89,17 @@ int				resolve_name(char *name, int is_resolution)
 	ret = 1;
 	param = split_value(clean_line(name));
 	param = resolve_name_param(param);
-	if (param == NULL)
-		ret = -1;
-	if (is_img(param))
+	if (is_null_param(param))
+		return (-1);
+	if (param && is_img(param))
 	{
 		param = reduce_equ(param, 1);
 		print_param(param);
 		printf("\n");
 	}
-	else if (is_mat(param))
+	else if (param && is_mat(param))
 		resolve_mat(param);
-	else if (is_func_param(param))
+	else if (param && is_func_param(param))
 		ret = resolve_func(param, name, is_resolution);
 	else if (param)
 		print_resolution(get_value(param), 1);

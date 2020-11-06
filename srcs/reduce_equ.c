@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/06 15:37:14 by mery             ###   ########.fr       */
+/*   Updated: 2020/11/06 15:20:49 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ static void	set_img_squared(t_param *param, int power)
 	}
 }
 
-static int	get_b_img(t_param *param)
+static double	get_b_img(t_param *param)
 {
 	if (is_img_squared(param))
 		return (get_val_img(param, 0) - get_val_noimg(param, 0));
 	return (get_val_img(param, 1) - get_val_noimg(param, 1));
 }
 
-static int	get_a_img(t_param *param)
+static double	get_a_img(t_param *param)
 {
 	return (get_val_noimg(param, 1));
 }
@@ -61,12 +61,12 @@ void		reduce_equ_2(t_param *param, t_param *new_param)
 	new_param->right->right->value = ft_strdup("1");
 	new_param->right->right->isimg = 1;
 	new_param->right->right->sym = '*';
-	new_param->right->left->value = ft_itoa(get_b_img(param));
+	new_param->right->left->value = ft_ftoa(get_b_img(param));
 	val = atoi(new_param->right->left->value);
 	if (val < 0)
 	{
 		free(new_param->right->left->value);
-		new_param->right->left->value = ft_itoa(val * -1);
+		new_param->right->left->value = ft_ftoa(val * -1);
 		new_param->sym = '-';
 	}
 	else
@@ -85,7 +85,7 @@ t_param		*reduce_equ(t_param *param, int freeparam)
 	if (get_a_img(param) != 0 || get_b_img(param) == 0)
 	{
 		new_param->left = init_param();
-		new_param->left->value = ft_itoa(get_a_img(param));
+		new_param->left->value = ft_ftoa(get_a_img(param));
 	}
 	else if (new_param->sym == '+')
 		new_param->sym = 0;

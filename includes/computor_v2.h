@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/15 15:43:46 by jmery             #+#    #+#             */
-/*   Updated: 2020/10/10 16:00:35 by mery             ###   ########.fr       */
+/*   Updated: 2020/11/06 15:17:55 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,6 +223,7 @@ int			is_func_param(t_param *param);
 int			is_mat(t_param *param);
 int			is_img(t_param *param);
 int			can_be_resolved(t_param *param);
+int			is_null_param(t_param *param);
 
 /*
 ** RESOLVE_EQU
