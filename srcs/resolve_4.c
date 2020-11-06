@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/11/06 15:16:33 by mery             ###   ########.fr       */
+/*   Updated: 2020/11/06 15:25:08 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,13 @@ int		can_be_resolved(t_param *param)
 	return (ret);
 }
 
-int				is_null_param(t_param *param)
+int		is_null_param(t_param *param)
 {
 	int		ret;
 
 	ret = 0;
-	if (param->sym != -1 && param->sym != 0 && (param->left == NULL || param->right == NULL))
+	if (param->sym != -1 && param->sym != 0
+		&& (param->left == NULL || param->right == NULL))
 		ret = 1;
 	if (param->left)
 		ret = ret | is_null_param(param->left);

@@ -6,13 +6,13 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/11/06 15:20:49 by mery             ###   ########.fr       */
+/*   Updated: 2020/11/06 15:24:49 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor_v2.h"
 
-static void	set_img_squared(t_param *param, int power)
+static void		set_img_squared(t_param *param, int power)
 {
 	if (power > 1)
 		param->power = param->power * power;
@@ -51,7 +51,7 @@ static double	get_a_img(t_param *param)
 	return (get_val_noimg(param, 1));
 }
 
-void		reduce_equ_2(t_param *param, t_param *new_param)
+void			reduce_equ_2(t_param *param, t_param *new_param)
 {
 	int			val;
 
@@ -73,7 +73,7 @@ void		reduce_equ_2(t_param *param, t_param *new_param)
 		new_param->sym = '+';
 }
 
-t_param		*reduce_equ(t_param *param, int freeparam)
+t_param			*reduce_equ(t_param *param, int freeparam)
 {
 	t_param		*new_param;
 
