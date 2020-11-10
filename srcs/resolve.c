@@ -6,7 +6,7 @@
 /*   By: mery <mery@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/15 14:51:02 by jmery             #+#    #+#             */
-/*   Updated: 2020/11/06 15:16:54 by mery             ###   ########.fr       */
+/*   Updated: 2020/11/10 14:23:26 by mery             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,18 +90,18 @@ int				resolve_name(char *name, int is_resolution)
 	param = split_value(clean_line(name));
 	param = resolve_name_param(param);
 	if (is_null_param(param))
-		return (-1);
-	if (param && is_img(param))
+		ret = -1;
+	if (ret == 1 && param && is_img(param))
 	{
 		param = reduce_equ(param, 1);
 		print_param(param);
 		printf("\n");
 	}
-	else if (param && is_mat(param))
+	else if (ret == 1 && param && is_mat(param))
 		resolve_mat(param);
-	else if (param && is_func_param(param))
+	else if (ret == 1 && param && is_func_param(param))
 		ret = resolve_func(param, name, is_resolution);
-	else if (param)
+	else if (ret == 1 && param)
 		print_resolution(get_value(param), 1);
 	if (param)
 		free_param(param);
